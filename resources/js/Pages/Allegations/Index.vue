@@ -219,7 +219,7 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/Layout";
+	import Layout from "@/Shared/Layout";
 	import SchoolProfile from "./SchoolProfile";
 	export default {
 		components: { Layout, school: SchoolProfile },

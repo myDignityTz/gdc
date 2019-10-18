@@ -50,7 +50,7 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/Layout";
+	import Layout from "@/Shared/Layout";
 	import RelationshipCreate from "./Create";
 	export default {
 		components: { Layout },

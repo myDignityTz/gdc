@@ -54,7 +54,7 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/Layout";
+	import Layout from "@/Shared/Layout";
 	import DistrictCreate from "./Create";
 	export default {
 		components: { Layout },

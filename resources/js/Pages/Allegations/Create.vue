@@ -142,11 +142,15 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/Layout";
+	import Layout from "@/Shared/Layout";
 	import HomeEnvironment from "./Home";
 	import SchoolEnvironment from "./School";
 	export default {
-		components: { Layout, HomeEnvironment, SchoolEnvironment },
+		components: {
+			Layout,
+			HomeEnvironment,
+			SchoolEnvironment
+		},
 		props: ["allegations", "regions", "types", "relationships"],
 		data() {
 			return {

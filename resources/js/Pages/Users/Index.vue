@@ -61,7 +61,7 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/Layout";
+	import Layout from "@/Shared/Layout";
 	import UserCreate from "./Create";
 	export default {
 		components: { Layout },

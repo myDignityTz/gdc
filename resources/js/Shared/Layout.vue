@@ -3,14 +3,30 @@
 		<header class="bg-purple-700 py-6">
 			<nav class="w-2/3 mx-auto">
 				<div class="flex justify-between">
-					<div class="flex items-center">
-						<inertia-link class="text-white pr-4" href="/home">Dashboard</inertia-link>
-						<inertia-link class="text-white px-4" href="/allegations">Allegations</inertia-link>
-						<inertia-link class="text-white px-4" href="/stakeholders">Stakeholders</inertia-link>
-						<inertia-link class="text-white px-4" href="/users">Users</inertia-link>
+					<div class="flex items-center text-purple-300">
+						<inertia-link
+							:class="{ 'text-white': route().current('home') }"
+							class="pr-4"
+							href="/home"
+						>Dashboard</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('allegations.index') }"
+							class="px-4"
+							href="/allegations"
+						>Allegations</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('stakeholders.index') }"
+							class="px-4"
+							href="/stakeholders"
+						>Stakeholders</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('users.index') }"
+							class="px-4"
+							href="/users"
+						>Users</inertia-link>
 						<v-popover placement="bottom-start" offset="24">
 							<!-- This will be the popover target (for the events and position) -->
-							<button class="flex items-center text-white px-4">
+							<button class="flex items-center px-4">
 								<span class="mr-2">Settings</span>
 								<i class="ri-arrow-down-s-line"></i>
 							</button>

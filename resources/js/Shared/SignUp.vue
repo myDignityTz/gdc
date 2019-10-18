@@ -88,6 +88,8 @@
 					})
 					.then(response => {
 						this.$emit("close");
+					}).catch(error => {
+						
 					});
 			},
 			cancel() {

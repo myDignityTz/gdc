@@ -3,10 +3,10 @@
 Auth::routes(['verify' => true]);
 
 Route::inertia("/",             "Static/Home");
-Route::inertia("about",         "Static/About");
-Route::inertia("contact",       "Static/Contact");
-Route::inertia("stories",       "Static/Stories");
-Route::inertia("how_we_work",   "Static/HowWeWork");
+Route::inertia("about",         "Static/About")->name("about");
+Route::inertia("contact",       "Static/Contact")->name("contact");
+Route::inertia("stories",       "Static/Stories")->name("stories");
+Route::inertia("how_we_work",   "Static/HowWeWork")->name("how-we-work");
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::post("allegations/{allegation}/stakeholders", "AllegationStakeholderController@store");

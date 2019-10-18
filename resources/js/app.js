@@ -4,6 +4,14 @@ import Vue from "vue";
 import VTooltip from "v-tooltip";
 import VModal from "vue-js-modal";
 import VueApexCharts from "vue-apexcharts";
+import route from "ziggy";
+import { Ziggy } from "./ziggy";
+
+Vue.mixin({
+    methods: {
+        route: (name, params, absolute) => route(name, params, absolute, Ziggy)
+    }
+});
 
 import "remixicon/fonts/remixicon.css";
 

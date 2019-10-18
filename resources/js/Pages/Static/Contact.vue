@@ -91,7 +91,7 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/SiteLayout";
+	import Layout from "@/Shared/SiteLayout";
 	export default {
 		components: { Layout }
 	};

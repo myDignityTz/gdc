@@ -198,9 +198,9 @@
 </template>
 
 <script>
-	import Layout from "./../../Shared/SiteLayout";
-	import HomeEnvironment from "./../Allegations/Home";
-	import SchoolEnvironment from "./../Allegations/School";
+	import Layout from "@/Shared/SiteLayout";
+	import SchoolEnvironment from "@/Pages/Allegations/School";
+	import HomeEnvironment from "@/Pages/Allegations/Home";
 	export default {
 		components: { Layout, HomeEnvironment, SchoolEnvironment },
 		props: ["allegations", "regions", "types", "relationships"],

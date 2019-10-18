@@ -3,12 +3,28 @@
 		<header class="bg-purple-700 py-5">
 			<nav class="w-2/3 mx-auto">
 				<div class="flex items-center justify-between">
-					<div class="flex items-center">
+					<div class="flex items-center text-purple-300">
 						<inertia-link class="text-white font-bold pr-4" href="/">GDC</inertia-link>
-						<inertia-link class="text-purple-300 hover:text-white px-4" href="/about">About</inertia-link>
-						<inertia-link class="text-purple-300 hover:text-white px-4" href="/stories">Stories</inertia-link>
-						<inertia-link class="text-purple-300 hover:text-white px-4" href="/how_we_work">How We Work</inertia-link>
-						<inertia-link class="text-purple-300 hover:text-white px-4" href="/contact">Contact</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('about') }"
+							class="hover:text-white px-4"
+							href="/about"
+						>About</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('stories') }"
+							class="hover:text-white px-4"
+							href="/stories"
+						>Stories</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('how-we-work') }"
+							class="hover:text-white px-4"
+							href="/how_we_work"
+						>How We Work</inertia-link>
+						<inertia-link
+							:class="{ 'text-white': route().current('contact') }"
+							class="hover:text-white px-4"
+							href="/contact"
+						>Contact</inertia-link>
 					</div>
 					<div class="flex items-center">
 						<template v-if="isAuthenticated">
