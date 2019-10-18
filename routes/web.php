@@ -12,6 +12,8 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::post("allegations/{allegation}/stakeholders", "AllegationStakeholderController@store");
 Route::patch("allegations/{allegation}/statuses", "AllegationStatusController@update");
 Route::patch("allegations/{allegation}/forward", "ForwardAllegationController@update");
+Route::get("report_issues", "ReportIssuesController@create");
+Route::post("report_issues", "ReportIssuesController@store");
 
 Route::resource("allegations", "AllegationsController");
 Route::resource("stakeholders", "StakeholdersController");
