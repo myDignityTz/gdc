@@ -110,7 +110,7 @@
 									<div class="w-1/2 border-r">
 										<div class="pr-6 pb-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Urgency</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Urgency</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
@@ -126,7 +126,7 @@
 									<div class="w-1/2">
 										<div class="pl-6 pb-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Dignity</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Dignity</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
@@ -144,7 +144,7 @@
 									<div class="w-1/2 border-r">
 										<div class="pr-6 py-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Leadership</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Leadership</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
@@ -158,7 +158,7 @@
 									<div class="w-1/2">
 										<div class="pl-6 py-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Partnership</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Partnership</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
@@ -176,7 +176,9 @@
 									<div class="w-1/2 border-r">
 										<div class="pr-6 pt-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Accountability</h3>
+												<h3
+													class="text-xs uppercase tracking-wider font-semibold text-purple-600"
+												>Accountability</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
@@ -191,7 +193,7 @@
 									<div class="w-1/2">
 										<div class="pl-6 pt-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700">Protection</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Protection</h3>
 											</header>
 											<div class="text-gray-700">
 												<p>
