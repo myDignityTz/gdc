@@ -27,9 +27,12 @@
     },
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@casl/ability": "^3.2.0",
+        "@casl/vue": "^0.5.1",
         "@inertiajs/inertia": "^0.1.6",
         "@inertiajs/inertia-vue": "^0.1.2",
         "apexcharts": "^3.10.0",
+        "casl": "^1.1.0",
         "remixicon": "^2.0.0",
         "tailwindcss": "^1.1.2",
         "v-tooltip": "^2.0.2",

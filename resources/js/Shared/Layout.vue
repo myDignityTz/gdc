@@ -5,26 +5,34 @@
 				<div class="flex justify-between">
 					<div class="flex items-center text-purple-300">
 						<inertia-link
-							:class="{ 'text-white': route().current('home') }"
-							class="pr-4"
-							href="/home"
-						>Dashboard</inertia-link>
+                            :class="{ 'text-white': $current('home') }"
+                            class="pr-4"
+                            href="/home"
+                            v-if="$can('view-dashboard')"
+                        >Dashboard</inertia-link>
+
 						<inertia-link
-							:class="{ 'text-white': route().current('allegations.index') }"
+							:class="{ 'text-white': $current('allegations.index') }"
 							class="px-4"
-							href="/allegations"
+							:href="$route('allegations.index')"
+                            v-if="$can('browse-allegations')"
 						>Allegations</inertia-link>
+
 						<inertia-link
-							:class="{ 'text-white': route().current('stakeholders.index') }"
+							:class="{ 'text-white': $current('stakeholders.index') }"
 							class="px-4"
 							href="/stakeholders"
+                            v-if="$can('browse-stakeholders')"
 						>Stakeholders</inertia-link>
+
 						<inertia-link
-							:class="{ 'text-white': route().current('users.index') }"
+							:class="{ 'text-white': $current('users.index') }"
 							class="px-4"
 							href="/users"
+                            v-if="$can('browse-users')"
 						>Users</inertia-link>
-						<v-popover placement="bottom-start" offset="24">
+
+						<v-popover placement="bottom-start" offset="24" v-if="$can('view-settings')">
 							<!-- This will be the popover target (for the events and position) -->
 							<button class="flex items-center px-4">
 								<span class="mr-2">Settings</span>
@@ -36,23 +44,34 @@
 									<inertia-link
 										class="block px-4 py-2 text-sm hover:bg-purple-700 hover:text-white"
 										href="/allegation_types"
+                                        v-if="$can('browse-allegation-types')"
+
 									>Allegation Type</inertia-link>
+
 									<inertia-link
 										class="block px-4 py-2 text-sm hover:bg-purple-700 hover:text-white"
 										href="/regions"
+                                        v-if="$can('browse-regions')"
 									>Regions</inertia-link>
+
 									<inertia-link
 										class="block px-4 py-2 text-sm hover:bg-purple-700 hover:text-white"
 										href="/districts"
+                                        v-if="$can('browse-districts')"
 									>Districts</inertia-link>
+
 									<inertia-link
 										class="block px-4 py-2 text-sm hover:bg-purple-700 hover:text-white"
 										href="/relationships"
-									>Suspect Relationshiphs</inertia-link>
+                                        v-if="$can('browse-suspect-relationships')"
+									>Suspect Relationships</inertia-link>
 								</div>
 							</template>
 						</v-popover>
+
 					</div>
+
+                    <!--                    -->
 					<div>
 						<v-popover placement="bottom-start">
 							<!-- This will be the popover target (for the events and position) -->

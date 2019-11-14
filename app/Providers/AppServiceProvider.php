@@ -27,21 +27,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Inertia::share('auth.user', function () {
-            if (Auth::user()) {
+            if ($user = auth()->user()) {
                 return [
-                    'id' => Auth::user()->id,
-                    'name' => Auth::user()->name,
-                    'role' => Auth::user()->role,
-                    "email" => Auth::user()->email,
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    "email" => $user->email,
+                    'role' => $user->role,
+                    'roles' => $user->getRoles(),
+                    "abilities" => $user->getAbilities()
                 ];
             }
         });
 
         Inertia::share([
             'errors' => function () {
-                return Session::get('errors')
-                    ? Session::get('errors')->getBag('default')->getMessages()
-                    : (object) [];
+                return session('errors') ? session('errors')->getBag('default')->getMessages() : (object) [];
             },
         ]);
     }

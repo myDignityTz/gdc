@@ -1,17 +1,11 @@
 require("./bootstrap");
-import { InertiaApp } from "@inertiajs/inertia-vue";
 import Vue from "vue";
+import route from "ziggy";
+import VueApexCharts from "vue-apexcharts";
 import VTooltip from "v-tooltip";
 import VModal from "vue-js-modal";
-import VueApexCharts from "vue-apexcharts";
-import route from "ziggy";
-import { Ziggy } from "./ziggy";
-
-Vue.mixin({
-    methods: {
-        route: (name, params, absolute) => route(name, params, absolute, Ziggy)
-    }
-});
+import { InertiaApp } from "@inertiajs/inertia-vue";
+import Errors from "./Errors";
 
 import "remixicon/fonts/remixicon.css";
 
@@ -24,18 +18,40 @@ Vue.use(VModal, {
     dynamicDefaults: { clickToClose: false }
 });
 
+Vue.mixin({
+    methods: {
+        errors() {
+            return new Errors(this.$page.errors);
+        }
+    }
+});
+
 Vue.component("apexchart", VueApexCharts);
 
-const app = document.getElementById("app");
+Vue.prototype.$can      = (name) => {
+    const { abilities } = app.$page.auth.user;
 
-new Vue({
-    render: h =>
+    if(!Object.keys(abilities).length) {
+        return false;
+    }
+
+    return !! abilities.find(ability => {
+        return ability.name === name;
+    });
+};
+Vue.prototype.$route    = (...args) => route(...args);
+Vue.prototype.$current  = (...args) => route().current(...args);
+
+const appContainer = document.getElementById("app");
+
+const app = new Vue({
+    render: (h) =>
         h(InertiaApp, {
             props: {
-                initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: name =>
-                    import(`./Pages/${name}`).then(module => module.default)
-                // resolveComponent: name => require(`./Pages/${name}`).default
+                initialPage: JSON.parse(appContainer.dataset.page),
+                resolveComponent: (name) => {
+                    return import(`./Pages/${name}`).then((module) => module.default)
+                }
             }
         })
-}).$mount(app);
+}).$mount(appContainer);
