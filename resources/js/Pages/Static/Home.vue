@@ -9,16 +9,7 @@
 							<header class="mb-12">
 								<h1 class="text-4xl font-bold text-white mb-4">GIRLS DROPOUT CURE</h1>
 								<p class="text-purple-100 text-lg leading-loose">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Inventore adipisci odio rerum nostrum aspernatur tenetur
-									cumque officia dolores aut,
-									<span
-										class="font-bold text-purple-900"
-									>explicabo natus</span> distinctio illo
-									et nihil
-									<span
-										class="font-bold text-purple-900"
-									>veniam perspiciatis</span> saepe non consectetur.
+                                    Girls Dropout Cure (GDC) is a platform that encourages and prompts the community to speak out and report different cases or issues that affect girls in their respective communities. The system or platform also creates a direct connection of various stakeholders, key players that provide financial and social welfare services to marginalised girls and the community leaders to take action against the reported cases of incidence facing girls.
 								</p>
 							</header>
 							<footer class="flex">
