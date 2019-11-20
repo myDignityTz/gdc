@@ -23,9 +23,8 @@
 									<header class="mb-6">
 										<h2 class="text-lg mb-2 text-gray-600">Report details</h2>
 										<p class="text-sm text-gray-700">
-											This details will be used only for follow up
-											reported issues, And it is optional if you feel
-											like you don't want to share it.
+                                            This details will be only be used to follow up reported issues.
+                                            Please indicate if you would like to remain anonymous
 										</p>
 									</header>
 									<div class="flex -mx-3">
@@ -50,9 +49,8 @@
 									<header class="mb-6">
 										<h2 class="text-lg mb-2 text-gray-600">Case details</h2>
 										<p class="text-sm text-gray-700">
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Molestias tenetur consequuntur eveniet accusantium eius nisi
-											itaque officia magni.
+                                            Provide key details about the reported case. Provide as much detail as
+                                            possible including place and date.
 										</p>
 									</header>
 									<div class="flex -mx-3">
@@ -119,9 +117,7 @@
 									<header class="mb-6">
 										<h2 class="text-lg mb-2 text-gray-600">Victim details</h2>
 										<p class="text-sm text-gray-700">
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Molestias tenetur consequuntur eveniet accusantium eius nisi
-											itaque officia magni.
+                                            Provide key details about the victim you are reporting the case on.
 										</p>
 									</header>
 									<div class="flex -mx-3">
@@ -148,9 +144,8 @@
 									<header class="mb-6">
 										<h2 class="text-lg mb-2 text-gray-600">Suspect details</h2>
 										<p class="text-sm text-gray-700">
-											Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-											Molestias tenetur consequuntur eveniet accusantium eius nisi
-											itaque officia magni.
+                                            Provide key details about the alleged suspect. Remember we will not share
+                                            your information with anyone.
 										</p>
 									</header>
 

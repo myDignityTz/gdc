@@ -53,14 +53,11 @@
 						</div>
 						<div class="w-1/2 px-6">
 							<header class="mb-6">
-								<h1
-									class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-								>Mission</h1>
+								<h1 class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold">Mission</h1>
 							</header>
 							<div class="text-gray-600 text-2xl">
-								To give girls the voice to speak out against humiliations and
-								harassments and provide educational support through our
-								partners for them to become leaders of change.
+                                To give girls the voice to speak out against harassment and provide educational support
+                                through our partners.
 							</div>
 						</div>
 					</div>
@@ -132,7 +129,7 @@
 												<p>
 													Respect, protection and promoting dignity to the girls
 													and community with the aim of debilitating effects and
-													exclusion on an individual`s sense of self- worth and
+													exclusion on an individual's sense of self-worth and
 													entitlement.
 												</p>
 											</div>

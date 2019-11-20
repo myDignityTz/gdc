@@ -71,6 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -112,7 +114,7 @@ var render = function() {
                 { staticClass: "text-purple-100 text-lg leading-loose" },
                 [
                   _vm._v(
-                    "\n\t\t\t\t\t\t\tKeep up to date with what people share their stories! Girls Dropout Cure is an ever\n\t\t\t\t\t\t\tevolving stories with regular updates.\n\t\t\t\t\t\t"
+                    "\n                                Keep up to date with key stories from the girls we've supported. Girls Dropout Cure is\n                                an ever evolving platform and updates stories on a regular basis.\n\t\t\t\t\t\t\t"
                   )
                 ]
               )
@@ -141,8 +143,6 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "mt-5" }, [
-                _c("span", { staticClass: "mr-4" }, [_vm._v("Tags:")]),
-                _vm._v(" "),
                 _c(
                   "span",
                   {
@@ -176,75 +176,20 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "bg-white py-24" }, [
-        _c(
-          "div",
-          { staticClass: "w-2/3 mx-auto" },
-          _vm._l(5, function(index) {
-            return _c(
-              "article",
-              {
-                key: index,
-                staticClass: "flex mt-12 border rounded overflow-hidden"
-              },
-              [
-                _c("div", { staticClass: "w-1/2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex flex-col h-full justify-between px-6 py-6"
-                    },
-                    [
-                      _c(
-                        "h3",
-                        {
-                          staticClass:
-                            "text-lg text-gray-700 font-semibold mb-2"
-                        },
-                        [_vm._v("Travel Can Keep You Creatively Inspired.")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-gray-600" }, [
-                        _c("p", [
-                          _vm._v(
-                            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, soluta ducimus commodi incidunt iste fugiat excepturi natus deserunt itaque, praesentium dolorum optio aut enim, illo officia ex quam. Voluptate, repudiandae."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "footer",
-                        {
-                          staticClass:
-                            "flex items-center justify-between border-t mt-4 pt-4"
-                        },
-                        [
-                          _c("div", [
-                            _c("h4", { staticClass: "text-sm text-gray-600" }, [
-                              _vm._v("David Pella")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "text-gray-600" }, [
-                            _vm._v("May 04")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "w-1/2" }, [
-                  _c("img", {
-                    staticClass: "object-cover",
-                    attrs: { src: "/img/stories/image01.jpg", alt: "" }
-                  })
-                ])
-              ]
-            )
-          }),
-          0
-        )
+        _c("div", { staticClass: "w-2/3 mx-auto" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "bg-purple-100 border border-purple-300 py-4 px-6 mt-6 rounded"
+            },
+            [
+              _vm._v(
+                "\n                        No stories have been uploaded.\n                    "
+              )
+            ]
+          )
+        ])
       ])
     ])
   ])
