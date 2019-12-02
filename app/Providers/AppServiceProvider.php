@@ -43,6 +43,9 @@ class AppServiceProvider extends ServiceProvider
             'errors' => function () {
                 return session('errors') ? session('errors')->getBag('default')->getMessages() : (object) [];
             },
+            'status' => function() {
+                return session('status') ? session('status') : (object) [];
+            }
         ]);
     }
 }

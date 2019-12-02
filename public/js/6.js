@@ -243,13 +243,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["regions"],
+  props: {
+    regions: {
+      type: Array,
+      required: true
+    }
+  },
   data: function data() {
     return {
       form: {
         street: "",
-        region: "",
-        district: ""
+        region_id: "",
+        district_id: ""
       }
     };
   },
@@ -266,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var region = this.regions.find(function (item) {
-        return item.id === _this.form.region;
+        return item.id === _this.form.region_id;
       });
       return region ? region.districts : [];
     }
@@ -930,7 +935,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-full px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-1 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-1 text-gray-700",
+            attrs: { for: "home_street" }
+          },
           [_vm._v("Street")]
         ),
         _vm._v(" "),
@@ -944,7 +952,7 @@ var render = function() {
             }
           ],
           staticClass: "form-input w-full",
-          attrs: { type: "text" },
+          attrs: { type: "text", id: "home_street" },
           domProps: { value: _vm.form.street },
           on: {
             input: function($event) {
@@ -962,7 +970,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "home_region" }
+          },
           [_vm._v("Region")]
         ),
         _vm._v(" "),
@@ -973,11 +984,12 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.region,
-                expression: "form.region"
+                value: _vm.form.region_id,
+                expression: "form.region_id"
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "home_region" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -990,7 +1002,7 @@ var render = function() {
                   })
                 _vm.$set(
                   _vm.form,
-                  "region",
+                  "region_id",
                   $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                 )
               }
@@ -1014,7 +1026,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "home_district" }
+          },
           [_vm._v("District")]
         ),
         _vm._v(" "),
@@ -1025,11 +1040,12 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.district,
-                expression: "form.district"
+                value: _vm.form.district_id,
+                expression: "form.district_id"
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "home_district" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -1042,7 +1058,7 @@ var render = function() {
                   })
                 _vm.$set(
                   _vm.form,
-                  "district",
+                  "district_id",
                   $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                 )
               }

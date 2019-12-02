@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAmbassadorsTable extends Migration
+class CreateHomeEnvironmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateAmbassadorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ambassadors', function (Blueprint $table) {
+        Schema::create('home_environments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name");
-            $table->string("email");
-            $table->string("phone");
+            $table->string('street');
+            $table->unsignedBigInteger('region_id')->nullable()->default(null);
+            $table->unsignedBigInteger('district_id')->nullable()->default(null);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateAmbassadorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ambassadors');
+        Schema::dropIfExists('home_environments');
     }
 }

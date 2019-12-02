@@ -123,7 +123,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-full px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "school_name" }
+          },
           [_vm._v("School name")]
         ),
         _vm._v(" "),
@@ -137,6 +140,7 @@ var render = function() {
             }
           ],
           staticClass: "form-input w-full",
+          attrs: { id: "school_name" },
           domProps: { value: _vm.form.name },
           on: {
             input: function($event) {
@@ -154,7 +158,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/3 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "school_type" }
+          },
           [_vm._v("Type")]
         ),
         _vm._v(" "),
@@ -170,6 +177,7 @@ var render = function() {
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "school_type" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -203,7 +211,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-2/3 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "school_level" }
+          },
           [_vm._v("Level")]
         ),
         _vm._v(" "),
@@ -219,6 +230,7 @@ var render = function() {
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "school_level" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -260,7 +272,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-full px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-1 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-1 text-gray-700",
+            attrs: { for: "school_street" }
+          },
           [_vm._v("Street")]
         ),
         _vm._v(" "),
@@ -274,7 +289,7 @@ var render = function() {
             }
           ],
           staticClass: "form-input w-full",
-          attrs: { type: "text" },
+          attrs: { type: "text", id: "school_street" },
           domProps: { value: _vm.form.street },
           on: {
             input: function($event) {
@@ -292,7 +307,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "school_region" }
+          },
           [_vm._v("Region")]
         ),
         _vm._v(" "),
@@ -308,6 +326,7 @@ var render = function() {
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "school_region" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -344,7 +363,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "school_district" }
+          },
           [_vm._v("District")]
         ),
         _vm._v(" "),
@@ -360,6 +382,7 @@ var render = function() {
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "school_district" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter

@@ -224,6 +224,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -262,6 +272,26 @@ var render = function() {
             _vm._v(
               "\n\t\t\t\t\t\tGirls Dropout Cure (GDC) is a platform that encourages and prompts the\n\t\t\t\t\t\tcommunity to speak out and report different cases or issues that affect girls\n\t\t\t\t\t\tin their respective communities. The system or platform also creates a direct\n\t\t\t\t\t\tconnection of various stakeholders, key players that provide financial and\n\t\t\t\t\t\tsocial welfare services to marginalised girls and the community leaders to take\n\t\t\t\t\t\taction against the reported cases of incidence facing girls.\n\t\t\t\t\t"
             )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "bg-white py-24" }, [
+        _c("div", { staticClass: "w-2/3 mx-auto" }, [
+          _c("div", { staticClass: "flex -mx-6" }, [
+            _c("div", { staticClass: "w-full px-6" }, [
+              _c("iframe", {
+                staticClass: "w-full rounded-lg shadow-lg",
+                attrs: {
+                  height: "420",
+                  src: "https://www.youtube.com/embed/tDVpvAd11FQ",
+                  frameborder: "0",
+                  allow:
+                    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                  allowfullscreen: ""
+                }
+              })
+            ])
           ])
         ])
       ]),

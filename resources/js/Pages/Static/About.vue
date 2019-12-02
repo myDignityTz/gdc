@@ -17,6 +17,16 @@
 				</div>
 			</section>
 
+            <section class="bg-white py-24">
+                <div class="w-2/3 mx-auto">
+                    <div class="flex -mx-6">
+                        <div class="w-full px-6">
+                            <iframe class="w-full rounded-lg shadow-lg" height="420" src="https://www.youtube.com/embed/tDVpvAd11FQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 			<!-- Vision -->
 			<section class="bg-gray-100 py-24">
 				<div class="w-2/3 mx-auto">

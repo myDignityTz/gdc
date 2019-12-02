@@ -42,13 +42,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["regions"],
+  props: {
+    regions: {
+      type: Array,
+      required: true
+    }
+  },
   data: function data() {
     return {
       form: {
         street: "",
-        region: "",
-        district: ""
+        region_id: "",
+        district_id: ""
       }
     };
   },
@@ -65,7 +70,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var region = this.regions.find(function (item) {
-        return item.id === _this.form.region;
+        return item.id === _this.form.region_id;
       });
       return region ? region.districts : [];
     }
@@ -280,6 +285,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -289,7 +319,20 @@ __webpack_require__.r(__webpack_exports__);
     HomeEnvironment: _Pages_Allegations_Home__WEBPACK_IMPORTED_MODULE_2__["default"],
     SchoolEnvironment: _Pages_Allegations_School__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ["allegations", "regions", "types", "relationships"],
+  props: {
+    regions: {
+      type: Array,
+      required: true
+    },
+    types: {
+      type: Array,
+      required: true
+    },
+    relationships: {
+      type: Array,
+      required: true
+    }
+  },
   data: function data() {
     return {
       form: {
@@ -298,6 +341,11 @@ __webpack_require__.r(__webpack_exports__);
         description: "",
         environment_type: "",
         environment: null,
+        reporter: {
+          name: "",
+          email: "",
+          phone: ""
+        },
         victim: {
           name: "",
           age: "",
@@ -313,8 +361,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    errors: function errors() {
-      return this.$page.errors;
+    hasStatus: function hasStatus() {
+      return !!Object.keys(this.$page.status).length;
     },
     environment: function environment() {
       return this.form.environment_type ? "".concat(this.form.environment_type, "Environment") : null;
@@ -330,7 +378,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.$inertia.post("/allegations", this.form);
+      this.$inertia.post("/report_issues", this.form);
     },
     appendEnvironment: function appendEnvironment(payload) {
       this.form.environment = payload;
@@ -360,7 +408,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-full px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-1 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-1 text-gray-700",
+            attrs: { for: "home_street" }
+          },
           [_vm._v("Street")]
         ),
         _vm._v(" "),
@@ -374,7 +425,7 @@ var render = function() {
             }
           ],
           staticClass: "form-input w-full",
-          attrs: { type: "text" },
+          attrs: { type: "text", id: "home_street" },
           domProps: { value: _vm.form.street },
           on: {
             input: function($event) {
@@ -392,7 +443,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "home_region" }
+          },
           [_vm._v("Region")]
         ),
         _vm._v(" "),
@@ -403,11 +457,12 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.region,
-                expression: "form.region"
+                value: _vm.form.region_id,
+                expression: "form.region_id"
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "home_region" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -420,7 +475,7 @@ var render = function() {
                   })
                 _vm.$set(
                   _vm.form,
-                  "region",
+                  "region_id",
                   $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                 )
               }
@@ -444,7 +499,10 @@ var render = function() {
       _c("div", { staticClass: "mb-6 w-1/2 px-3" }, [
         _c(
           "label",
-          { staticClass: "block mb-2 text-gray-700", attrs: { for: "type" } },
+          {
+            staticClass: "block mb-2 text-gray-700",
+            attrs: { for: "home_district" }
+          },
           [_vm._v("District")]
         ),
         _vm._v(" "),
@@ -455,11 +513,12 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.form.district,
-                expression: "form.district"
+                value: _vm.form.district_id,
+                expression: "form.district_id"
               }
             ],
             staticClass: "form-select w-full",
+            attrs: { id: "home_district" },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -472,7 +531,7 @@ var render = function() {
                   })
                 _vm.$set(
                   _vm.form,
-                  "district",
+                  "district_id",
                   $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                 )
               }
@@ -536,7 +595,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "bg-white pb-24" }, [
-        _c("div", { staticClass: "w-2/3 mx-auto" }, [
+        _c("div", { staticClass: "flex w-2/3 mx-auto" }, [
           _c("div", { staticClass: "w-2/3" }, [
             _c(
               "form",
@@ -559,20 +618,87 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
+                    _vm.hasStatus
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow mb-4",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _c("div", { staticClass: "flex" }, [
+                              _c("div", { staticClass: "py-1" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass:
+                                      "fill-current h-6 w-6 text-teal-500 mr-4",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      viewBox: "0 0 20 20"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", [
+                                _c("p", { staticClass: "font-bold" }, [
+                                  _vm._v("Case Reported")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "text-sm" }, [
+                                  _vm._v(_vm._s(_vm.$page.status))
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c("div", { staticClass: "flex -mx-3" }, [
                       _c("div", { staticClass: "w-full px-3 mb-6" }, [
                         _c(
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "name" }
+                            attrs: { for: "reporter_name" }
                           },
                           [_vm._v("Name")]
                         ),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.reporter.name,
+                              expression: "form.reporter.name"
+                            }
+                          ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "text" }
+                          attrs: { type: "text", id: "reporter_name" },
+                          domProps: { value: _vm.form.reporter.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form.reporter,
+                                "name",
+                                $event.target.value
+                              )
+                            }
+                          }
                         })
                       ])
                     ]),
@@ -583,15 +709,54 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "name" }
+                            attrs: { for: "reporter_email" }
                           },
                           [_vm._v("Email")]
                         ),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.reporter.email,
+                              expression: "form.reporter.email"
+                            }
+                          ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "text" }
-                        })
+                          attrs: { type: "text", id: "reporter_email" },
+                          domProps: { value: _vm.form.reporter.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form.reporter,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors().has("reporter.email")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(
+                                      _vm.errors().first("reporter.email")
+                                    ) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "w-1/2 px-3" }, [
@@ -599,15 +764,54 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "name" }
+                            attrs: { for: "reporter_phone" }
                           },
                           [_vm._v("Phone")]
                         ),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.reporter.phone,
+                              expression: "form.reporter.phone"
+                            }
+                          ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "text" }
-                        })
+                          attrs: { type: "text", id: "reporter_phone" },
+                          domProps: { value: _vm.form.reporter.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form.reporter,
+                                "phone",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errors().has("reporter.phone")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(
+                                      _vm.errors().first("reporter.phone")
+                                    ) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ])
                     ])
                   ]),
@@ -648,7 +852,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-select w-full",
-                            class: { "border-red-500": _vm.$page.errors.type },
+                            attrs: { id: "type" },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -678,20 +882,32 @@ var render = function() {
                               return _c(
                                 "option",
                                 { key: type.id, domProps: { value: type.id } },
-                                [_vm._v(_vm._s(type.name))]
+                                [
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(type.name) +
+                                      "\n                                                "
+                                  )
+                                ]
                               )
                             })
                           ],
                           2
                         ),
                         _vm._v(" "),
-                        _vm.$page.errors.type
+                        _vm.errors().has("type_id")
                           ? _c(
                               "div",
                               {
                                 staticClass: "text-red-500 text-sm italic mt-1"
                               },
-                              [_vm._v(_vm._s(_vm.$page.errors.type[0]))]
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("type_id")) +
+                                    "\n                                            "
+                                )
+                              ]
                             )
                           : _vm._e()
                       ]),
@@ -701,7 +917,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "category" }
                           },
                           [_vm._v("Category")]
                         ),
@@ -718,6 +934,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-select w-full",
+                            attrs: { id: "category" },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -750,14 +967,20 @@ var render = function() {
                                   key: category.id,
                                   domProps: { value: category.id }
                                 },
-                                [_vm._v(_vm._s(category.name))]
+                                [
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(category.name) +
+                                      "\n                                                "
+                                  )
+                                ]
                               )
                             })
                           ],
                           2
                         ),
                         _vm._v(" "),
-                        _vm.$page.errors.classification
+                        _vm.errors().has("category_id")
                           ? _c(
                               "div",
                               {
@@ -765,7 +988,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  _vm._s(_vm.$page.errors.classification[0])
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("category_id")) +
+                                    "\n                                            "
                                 )
                               ]
                             )
@@ -779,7 +1004,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "environment_type" }
                           },
                           [_vm._v("Environment")]
                         ),
@@ -796,6 +1021,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-select w-full",
+                            attrs: { id: "environment_type" },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -831,13 +1057,21 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm.$page.errors.environment
+                        _vm.errors().has("environment_type")
                           ? _c(
                               "div",
                               {
                                 staticClass: "text-red-500 text-sm italic mt-1"
                               },
-                              [_vm._v(_vm._s(_vm.$page.errors.environment[0]))]
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(
+                                      _vm.errors().first("environment_type")
+                                    ) +
+                                    "\n                                            "
+                                )
+                              ]
                             )
                           : _vm._e()
                       ])
@@ -862,7 +1096,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-2 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "description" }
                           },
                           [_vm._v("Description")]
                         ),
@@ -877,7 +1111,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-textarea w-full",
-                          attrs: { rows: "3" },
+                          attrs: { id: "description", rows: "3" },
                           domProps: { value: _vm.form.description },
                           on: {
                             input: function($event) {
@@ -891,7 +1125,23 @@ var render = function() {
                               )
                             }
                           }
-                        })
+                        }),
+                        _vm._v(" "),
+                        _vm.errors().has("description")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("description")) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ])
                     ])
                   ]),
@@ -915,7 +1165,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-1 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "victim_name" }
                           },
                           [_vm._v("Name")]
                         ),
@@ -930,7 +1180,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "text" },
+                          attrs: { type: "text", id: "victim_name" },
                           domProps: { value: _vm.form.victim.name },
                           on: {
                             input: function($event) {
@@ -944,7 +1194,23 @@ var render = function() {
                               )
                             }
                           }
-                        })
+                        }),
+                        _vm._v(" "),
+                        _vm.errors().has("victim.name")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("victim.name")) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "mb-6 w-1/3 px-3" }, [
@@ -952,7 +1218,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-1 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "victim_age" }
                           },
                           [_vm._v("Age (In Years)")]
                         ),
@@ -967,7 +1233,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "number" },
+                          attrs: { type: "number", id: "victim_age" },
                           domProps: { value: _vm.form.victim.age },
                           on: {
                             input: function($event) {
@@ -983,13 +1249,19 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.$page.errors.victim
+                        _vm.errors().has("victim.age")
                           ? _c(
                               "div",
                               {
                                 staticClass: "text-red-500 text-sm italic mt-1"
                               },
-                              [_vm._v(_vm._s(_vm.$page.errors.victim.age[0]))]
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("victim.age")) +
+                                    "\n                                            "
+                                )
+                              ]
                             )
                           : _vm._e()
                       ])
@@ -1000,7 +1272,7 @@ var render = function() {
                         "label",
                         {
                           staticClass: "block mb-1 text-gray-700",
-                          attrs: { for: "type" }
+                          attrs: { for: "victim_description" }
                         },
                         [_vm._v("Description")]
                       ),
@@ -1015,7 +1287,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-textarea w-full",
-                        attrs: { rows: "3" },
+                        attrs: { id: "victim_description", rows: "3" },
                         domProps: { value: _vm.form.victim.description },
                         on: {
                           input: function($event) {
@@ -1029,7 +1301,23 @@ var render = function() {
                             )
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors().has("victim.description")
+                        ? _c(
+                            "div",
+                            { staticClass: "text-red-500 text-sm italic mt-1" },
+                            [
+                              _vm._v(
+                                "\n                                            " +
+                                  _vm._s(
+                                    _vm.errors().first("victim.description")
+                                  ) +
+                                  "\n                                        "
+                              )
+                            ]
+                          )
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -1052,7 +1340,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-1 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "suspect_name" }
                           },
                           [_vm._v("Name")]
                         ),
@@ -1067,7 +1355,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-input w-full",
-                          attrs: { type: "text" },
+                          attrs: { type: "text", id: "suspect_name" },
                           domProps: { value: _vm.form.suspect.name },
                           on: {
                             input: function($event) {
@@ -1081,7 +1369,23 @@ var render = function() {
                               )
                             }
                           }
-                        })
+                        }),
+                        _vm._v(" "),
+                        _vm.errors().has("suspect.name")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(_vm.errors().first("suspect.name")) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ])
                     ]),
                     _vm._v(" "),
@@ -1091,7 +1395,7 @@ var render = function() {
                           "label",
                           {
                             staticClass: "block mb-1 text-gray-700",
-                            attrs: { for: "type" }
+                            attrs: { for: "suspect_relationship" }
                           },
                           [_vm._v("Relationship")]
                         ),
@@ -1108,6 +1412,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-select w-full",
+                            attrs: { id: "suspect_relationship" },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -1138,12 +1443,36 @@ var render = function() {
                                   key: relationship.id,
                                   domProps: { value: relationship.name }
                                 },
-                                [_vm._v(_vm._s(relationship.name))]
+                                [
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(relationship.name) +
+                                      "\n                                                "
+                                  )
+                                ]
                               )
                             })
                           ],
                           2
-                        )
+                        ),
+                        _vm._v(" "),
+                        _vm.errors().has("suspect.relationship")
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "text-red-500 text-sm italic mt-1"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                                " +
+                                    _vm._s(
+                                      _vm.errors().first("suspect.relationship")
+                                    ) +
+                                    "\n                                            "
+                                )
+                              ]
+                            )
+                          : _vm._e()
                       ])
                     ]),
                     _vm._v(" "),
@@ -1152,7 +1481,7 @@ var render = function() {
                         "label",
                         {
                           staticClass: "block mb-1 text-gray-700",
-                          attrs: { for: "type" }
+                          attrs: { for: "suspect_description" }
                         },
                         [_vm._v("Description")]
                       ),
@@ -1167,7 +1496,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-textarea w-full",
-                        attrs: { rows: "3" },
+                        attrs: { id: "suspect_description", rows: "3" },
                         domProps: { value: _vm.form.suspect.description },
                         on: {
                           input: function($event) {
@@ -1181,7 +1510,23 @@ var render = function() {
                             )
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors().has("suspect.description")
+                        ? _c(
+                            "div",
+                            { staticClass: "text-red-500 text-sm italic mt-1" },
+                            [
+                              _vm._v(
+                                "\n                                            " +
+                                  _vm._s(
+                                    _vm.errors().first("suspect.description")
+                                  ) +
+                                  "\n                                        "
+                              )
+                            ]
+                          )
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -1198,7 +1543,11 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Report Case")]
+                      [
+                        _vm._v(
+                          "\n                                        Report Case\n                                    "
+                        )
+                      ]
                     )
                   ])
                 ])
