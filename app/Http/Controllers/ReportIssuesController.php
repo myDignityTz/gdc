@@ -58,11 +58,17 @@ class ReportIssuesController extends Controller
             $environment = HomeEnvironment::create(request("environment"));
         }
 
+        if (auth()->check()) {
+            $reporter_id = auth()->user()->reporter->id;
+        } else {
+            $reporter_id = null;
+        }
+
         $allegation = Allegation::create([
             "type_id" => request("type_id"),
             "category_id" => request("category_id"),
             "environment" => request("environment_type"),
-            "reporter_id" => auth()->user()->reporter->id,
+            "reporter_id" => $reporter_id,
             "victim_id" => $victim->id,
             "suspect_id" => $suspect->id,
             "description" => request("description"),
