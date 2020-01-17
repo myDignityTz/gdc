@@ -1,8 +1,8 @@
 <template>
 	<layout title="The Expert - About">
 		<div class="w-full">
-			<section class="bg-purple-700 py-24">
-				<div class="w-2/3 mx-auto">
+			<section class="bg-purple-700 lg:py-24 py-12">
+				<div class="lg:w-2/3 lg:px-0 px-6 mx-auto">
 					<header class="mb-4">
 						<h1 class="text-3xl font-semibold text-white">About Us</h1>
 					</header>
@@ -17,33 +17,40 @@
 				</div>
 			</section>
 
-            <section class="bg-white py-24">
-                <div class="w-2/3 mx-auto">
+            <section class="bg-white lg:py-24 py-12">
+                <div class="lg:w-2/3 lg:px-0 px-6 mx-auto">
                     <div class="flex -mx-6">
                         <div class="w-full px-6">
-                            <iframe class="w-full rounded-lg shadow-lg" height="420" src="https://www.youtube.com/embed/tDVpvAd11FQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe
+                                class="w-full rounded-lg shadow-lg"
+                                height="420"
+                                src="https://www.youtube.com/embed/tDVpvAd11FQ"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
                         </div>
                     </div>
                 </div>
             </section>
 
 			<!-- Vision -->
-			<section class="bg-gray-100 py-24">
-				<div class="w-2/3 mx-auto">
-					<div class="flex -mx-6">
-						<div class="w-1/2 px-6">
+			<section class="bg-gray-100 lg:py-24 py-12">
+				<div class="lg:w-2/3 lg:px-0 px-6 mx-auto">
+					<div class="flex lg:flex-row flex-col lg:-mx-6">
+						<div class="lg:w-1/2 w-full lg:px-6 order-last lg:order-first">
 							<header class="mb-6">
-								<h1
-									class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-								>Vision</h1>
+								<h1 class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold">
+                                    Vision
+                                </h1>
 							</header>
-							<div class="text-gray-600 text-2xl">
+							<div class="text-gray-600 lg:text-2xl text-xl">
 								GDC envisions an Africa in which every girl is
 								educated, valued, respected and protected and
 								grow to turn the tides of development in Africa.
 							</div>
 						</div>
-						<div class="w-1/2 px-6">
+						<div class="lg:w-1/2 w-full lg:px-6 order-first lg:order-last mb-6 lg:mb-0">
 							<div class="shadow rounded overflow-hidden">
 								<img class="w-full h-64 object-cover" src="/img/pages/image01.jpg" alt />
 							</div>
@@ -53,19 +60,19 @@
 			</section>
 
 			<!-- Mission -->
-			<section class="bg-white py-24">
-				<div class="w-2/3 mx-auto">
-					<div class="flex -mx-6">
-						<div class="w-1/2 px-6">
+			<section class="bg-white lg:py-24 py-12">
+				<div class="lg:w-2/3 mx-auto">
+					<div class="flex lg:flex-row flex-col lg:-mx-6">
+						<div class="lg:w-1/2 w-full px-6 mb-6 lg:mb-0">
 							<div class="shadow rounded overflow-hidden">
-								<img class="w-full h-64 object-cover" src="/img/pages/image02.jpg" alt />
+								<img class="w-full h-64 object-cover" src="/img/pages/image02.jpg"  />
 							</div>
 						</div>
-						<div class="w-1/2 px-6">
+						<div class="lg:w-1/2 w-full px-6">
 							<header class="mb-6">
 								<h1 class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold">Mission</h1>
 							</header>
-							<div class="text-gray-600 text-2xl">
+							<div class="text-gray-600 lg:text-2xl text-xl">
                                 To give girls the voice to speak out against harassment and provide educational support
                                 through our partners.
 							</div>
@@ -75,16 +82,16 @@
 			</section>
 
 			<!-- Why -->
-			<section class="bg-gray-900 py-32">
-				<div class="w-2/3 mx-auto">
+			<section class="bg-gray-900 lg:py-32 py-16">
+				<div class="lg:w-2/3 mx-auto">
 					<div class="flex">
-						<div class="w-2/3">
+						<div class="lg:w-2/3 px-6">
 							<header class="mb-6">
-								<h1
-									class="inline-block pb-2 text-3xl font-thin text-purple-100 uppercase tracking-wider"
-								>Why girls educational support?</h1>
+								<h1 class="inline-block pb-2 lg:text-3xl text-2xl font-thin text-purple-100 uppercase tracking-wider">
+                                    Why girls educational support?
+                                </h1>
 							</header>
-							<div class="text-2xl text-white font-serif italic">
+							<div class="lg:text-2xl text-xl text-white font-serif italic">
 								Educating a girl is the best investment we can use to change
 								the world and making it safer. Incredible multiplier effect,
 								providing returns for generations. Educated girls improve not
@@ -97,25 +104,25 @@
 			</section>
 
 			<!-- Core values -->
-			<section class="bg-white py-24">
-				<div class="w-2/3 mx-auto">
+			<section class="bg-white lg:py-24 py-12">
+				<div class="lg:w-2/3 mx-auto px-6 lg:px-0">
 					<div class="flex">
 						<div class="w-full">
 							<header class="mb-6">
-								<h1
-									class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-								>Core Values</h1>
+								<h1 class="inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold">
+                                    Core Values
+                                </h1>
 							</header>
-							<div class="text-gray-600 text-2xl">
+							<div class="text-gray-600 lg:text-2xl text-xl">
 								To give girls the voice to speak out against humiliations and
 								harassments and provide educational support through our
 								partners for them to become leaders of change.
 							</div>
 
 							<div class="mt-8">
-								<div class="flex border-b">
-									<div class="w-1/2 border-r">
-										<div class="pr-6 pb-8">
+								<div class="flex lg:flex-row flex-col lg:border-b">
+									<div class="lg:w-1/2 w-full lg:border-r">
+										<div class="lg:pr-6 pb-8">
 											<header class="mb-3">
 												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Urgency</h3>
 											</header>
@@ -130,8 +137,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="w-1/2">
-										<div class="pl-6 pb-8">
+									<div class="lg:w-1/2 w-full">
+										<div class="lg:pl-6 lg:pb-8">
 											<header class="mb-3">
 												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Dignity</h3>
 											</header>
@@ -147,9 +154,9 @@
 									</div>
 								</div>
 
-								<div class="flex border-b">
-									<div class="w-1/2 border-r">
-										<div class="pr-6 py-8">
+								<div class="flex lg:flex-row flex-col lg:border-b">
+									<div class="w-1/2 w-full lg:border-r">
+										<div class="lg:pr-6 lg:pb-8 pt-8">
 											<header class="mb-3">
 												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Leadership</h3>
 											</header>
@@ -162,8 +169,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="w-1/2">
-										<div class="pl-6 py-8">
+									<div class="w-1/2 w-full">
+										<div class="lg:pl-6 pt-8 lg:pb-8">
 											<header class="mb-3">
 												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Partnership</h3>
 											</header>
@@ -179,8 +186,8 @@
 									</div>
 								</div>
 
-								<div class="flex">
-									<div class="w-1/2 border-r">
+								<div class="flex lg:flex-row flex-col">
+									<div class="w-1/2 w-full lg:border-r">
 										<div class="pr-6 pt-8">
 											<header class="mb-3">
 												<h3
@@ -197,10 +204,12 @@
 											</div>
 										</div>
 									</div>
-									<div class="w-1/2">
-										<div class="pl-6 pt-8">
+									<div class="w-1/2 w-full">
+										<div class="lg:pl-6 pt-8">
 											<header class="mb-3">
-												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">Protection</h3>
+												<h3 class="text-xs uppercase tracking-wider font-semibold text-purple-600">
+                                                    Protection
+                                                </h3>
 											</header>
 											<div class="text-gray-700">
 												<p>

@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\App;
 
 class Handler extends ExceptionHandler
 {
@@ -29,8 +31,9 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -46,6 +49,19 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        $response = parent::render($request, $exception);
+
+        if (App::environment('production')
+            && $request->header('X-Inertia')
+            && in_array($response->status(), [500, 503, 404, 403])
+        ) {
+            return Inertia::render('Error', ['status' => $response->status()])
+                ->toResponse($request)
+                ->setStatusCode($response->status());
+        }
+
+        //return parent::render($request, $exception);
+
+        return $response;
     }
 }

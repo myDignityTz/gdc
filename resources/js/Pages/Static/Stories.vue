@@ -1,8 +1,8 @@
 <template>
 	<layout title="The Expert - About">
 		<div class="w-full">
-			<section class="bg-purple-700 py-24">
-				<div class="w-2/3 mx-auto relative">
+			<section class="bg-purple-700 lg:py-24 py-12">
+				<div class="lg:w-2/3 lg:px-0 px-6 mx-auto relative">
 					<div class="flex mb-12">
 						<div class="w-2/3">
 							<header class="mb-4">
@@ -14,12 +14,12 @@
 							</div>
 						</div>
 					</div>
-					<form class="bg-white absolute left-0 right-0 py-10 px-12 rounded shadow" style="top: 12rem;">
+					<form class="bg-white absolute left-0 right-0 py-10 px-12 rounded shadow">
 						<div class="flex">
 							<input type="text" class="form-input w-full" placeholder="Search..." />
 							<button class="bg-purple-700 px-6 rounded text-white ml-4">Search</button>
 						</div>
-						<div class="mt-5">
+						<div class="mt-5 hidden">
 							<span class="bg-gray-200 py-1 px-2 text-sm rounded-full mx-1">Sexual Abuse</span>
 							<span class="bg-gray-200 py-1 px-2 text-sm rounded-full mx-1">Emotional Abuse</span>
 							<span class="bg-gray-200 py-1 px-2 text-sm rounded-full mx-1">Other</span>

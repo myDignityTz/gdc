@@ -99,8 +99,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("layout", { attrs: { title: "The Expert - About" } }, [
     _c("div", { staticClass: "w-full" }, [
-      _c("section", { staticClass: "bg-purple-700 py-24" }, [
-        _c("div", { staticClass: "w-2/3 mx-auto relative" }, [
+      _c("section", { staticClass: "bg-purple-700 lg:py-24 py-12" }, [
+        _c("div", { staticClass: "lg:w-2/3 lg:px-0 px-6 mx-auto relative" }, [
           _c("div", { staticClass: "flex mb-12" }, [
             _c("div", { staticClass: "w-2/3" }, [
               _c("header", { staticClass: "mb-4" }, [
@@ -125,8 +125,7 @@ var render = function() {
             "form",
             {
               staticClass:
-                "bg-white absolute left-0 right-0 py-10 px-12 rounded shadow",
-              staticStyle: { top: "12rem" }
+                "bg-white absolute left-0 right-0 py-10 px-12 rounded shadow"
             },
             [
               _c("div", { staticClass: "flex" }, [
@@ -142,7 +141,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "mt-5" }, [
+              _c("div", { staticClass: "mt-5 hidden" }, [
                 _c(
                   "span",
                   {

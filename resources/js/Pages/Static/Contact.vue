@@ -1,8 +1,8 @@
 <template>
 	<layout title="The Expert - About">
 		<div class="w-full">
-			<section class="bg-purple-700 py-24">
-				<div class="w-2/3 mx-auto">
+			<section class="bg-purple-700 lg:py-24 py-12">
+				<div class="lg:w-2/3 px-6 lg:px-0 mx-auto">
 					<header class="mb-4">
 						<h1 class="text-3xl font-semibold text-white">We’re Here to Help.</h1>
 					</header>
@@ -14,18 +14,18 @@
 			</section>
 
 			<!-- Details -->
-			<section class="bg-gray-100 py-24 border-b">
-				<div class="w-2/3 mx-auto">
-					<div class="flex">
-						<div class="w-1/3 text-center border-r pr-12">
+			<section class="bg-gray-100 lg:py-24 py-12 border-b">
+				<div class="lg:w-2/3 px-6 mx-auto">
+					<div class="flex lg:flex-row flex-col">
+						<div class="lg:w-1/3 w-full lg:text-center lg:border-r lg:pr-12 mb-4 lg:mb-4">
 							<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700 mb-2">Message us</h3>
 							<a href="#" class="text-purple-500">Start a chat!</a>
 						</div>
-						<div class="w-1/3 text-center border-r px-12">
+						<div class="lg:w-1/3 w-full lg:text-center lg:border-r lg:px-12 mb-4 lg:mb-4">
 							<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700 mb-2">Call anytime</h3>
 							<a href="#" class="text-purple-500">+255 714 123 567</a>
 						</div>
-						<div class="w-1/3 text-center px-12">
+						<div class="lg:w-1/3 w-full lg:text-center lg:px-12 mb-4 lg:mb-4">
 							<h3 class="text-xs uppercase tracking-wider font-semibold text-gray-700 mb-2">Email us</h3>
 							<a href="#" class="text-purple-500">support@theexpert.co.tz</a>
 						</div>
@@ -34,8 +34,8 @@
 			</section>
 
 			<!-- Mission -->
-			<section class="bg-white py-24">
-				<div class="w-2/3 mx-auto">
+			<section class="bg-white lg:py-24 py-12">
+				<div class="lg:w-2/3 px-6 lg:px-0 mx-auto">
 					<div class="flex">
 						<div class="w-full">
 							<header class="mb-6">
@@ -43,18 +43,18 @@
 									class="inline-block pb-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
 								>Let us hear from you directly!</h1>
 							</header>
-							<div class="text-gray-600 text-2xl">
+							<div class="text-gray-600 lg:text-2xl text-xl">
 								We always want to hear from you! Let us know how we can
 								best help you and we'll do our very best.
 							</div>
 
 							<form class="mt-12">
-								<section class="flex mb-6 -mx-3">
-									<div class="w-1/2 px-3">
+								<section class="flex lg:flex-row flex-col lg:mb-6 lg:-mx-3">
+									<div class="lg:w-1/2 w-full lg:px-3 lg:mb-0 mb-6">
 										<label for="name" class="block text-gray-700 mb-2">Name</label>
 										<input type="text" id="name" class="form-input w-full" placeholder="Full Name..." />
 									</div>
-									<div class="w-1/2 px-3">
+									<div class="lg:w-1/2 w-full lg:px-3 lg:mb-0 mb-6">
 										<label for="email" class="block text-gray-700 mb-2">Email</label>
 										<input type="text" id="email" class="form-input w-full" placeholder="hello@domain.com..." />
 									</div>
@@ -62,7 +62,7 @@
 								<section class="flex mb-6 -mx-3">
 									<div class="w-full px-3">
 										<label for="subject" class="block text-gray-700 mb-2">Subject</label>
-										<input type="text" id="name" class="form-input w-full" placeholder="Subject..." />
+										<input type="text" id="subject" class="form-input w-full" placeholder="Subject..." />
 									</div>
 								</section>
 								<section class="flex mb-6">
