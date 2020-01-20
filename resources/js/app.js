@@ -5,6 +5,7 @@ import VueApexCharts from "vue-apexcharts";
 import VTooltip from "v-tooltip";
 import VModal from "vue-js-modal";
 import { InertiaApp } from "@inertiajs/inertia-vue";
+import VueMeta from 'vue-meta';
 import Errors from "./Errors";
 
 import "remixicon/fonts/remixicon.css";
@@ -16,6 +17,9 @@ Vue.use(VModal, {
     dynamic: true,
     injectModalsContainer: true,
     dynamicDefaults: { clickToClose: false }
+});
+Vue.use(VueMeta, {
+    keyName: 'head',
 });
 
 Vue.mixin({

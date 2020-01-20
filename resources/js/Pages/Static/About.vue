@@ -1,5 +1,5 @@
 <template>
-	<layout title="The Expert - About">
+	<layout>
 		<div class="w-full">
 			<section class="bg-purple-700 lg:py-24 py-12">
 				<div class="lg:w-2/3 lg:px-0 px-6 mx-auto">
@@ -233,7 +233,11 @@
 
 <script>
 	import Layout from "@/Shared/SiteLayout";
+
 	export default {
-		components: { Layout }
+		components: { Layout },
+        head: {
+            title: 'The Expert - About Us',
+        }
 	};
 </script>

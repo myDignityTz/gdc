@@ -139,7 +139,10 @@
 <script>
 	import Layout from "@/Shared/SiteLayout";
 	export default {
-		components: { Layout }
+		components: { Layout },
+        head: {
+            title: 'The Expert - Home',
+        }
 	};
 </script>
 

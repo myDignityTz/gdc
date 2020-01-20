@@ -1,5 +1,5 @@
 <template>
-	<layout title="The Expert - About">
+	<layout>
 		<div class="w-full">
 			<section class="bg-purple-700 pt-24 pb-48">
 				<div class="w-2/3 mx-auto">
@@ -227,6 +227,9 @@
 		    Layout,
             HomeEnvironment,
             SchoolEnvironment
+        },
+        head: {
+            title: 'The Expert - Allegations',
         },
 		props: {
             regions: { type: Array, required: true },
