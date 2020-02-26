@@ -1,217 +1,25 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Static/About.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Static/About.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Shared_SiteLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Shared/SiteLayout */ "./resources/js/Shared/SiteLayout.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/events */ "./resources/js/events.js");
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(form_backend_validation__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -244,21 +52,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Layout: _Shared_SiteLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  props: {
+    regions: {
+      required: true
+    }
   },
-  head: {
-    title: 'The Expert - About Us'
+  data: function data() {
+    return {
+      form: new form_backend_validation__WEBPACK_IMPORTED_MODULE_2___default.a({
+        name: "",
+        region_id: ""
+      })
+    };
+  },
+  methods: {
+    submit: function () {
+      var _submit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return this.form.post("/districts");
+
+              case 3:
+                this.$emit("close");
+                _events__WEBPACK_IMPORTED_MODULE_1__["default"].$emit('districtWasCreated', true);
+                this.$inertia.reload();
+                _context.next = 10;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 8]]);
+      }));
+
+      function submit() {
+        return _submit.apply(this, arguments);
+      }
+
+      return submit;
+    }()
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5& ***!
-  \**********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f& ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -270,376 +125,170 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("layout", [
-    _c("div", { staticClass: "w-full" }, [
-      _c("section", { staticClass: "bg-purple-700 lg:py-24 py-12" }, [
-        _c("div", { staticClass: "lg:w-2/3 lg:px-0 px-6 mx-auto" }, [
-          _c("header", { staticClass: "mb-4" }, [
-            _c("h1", { staticClass: "text-3xl font-semibold text-white" }, [
-              _vm._v("About Us")
-            ])
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit($event)
+        }
+      }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("section", { staticClass: "mt-6" }, [
+        _c("div", { staticClass: "px-6 mb-6" }, [
+          _c("label", { staticClass: "block mb-2", attrs: { for: "name" } }, [
+            _vm._v("Name")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "text-purple-100 text-lg leading-loose" }, [
-            _vm._v(
-              "\n\t\t\t\t\t\tGirls Dropout Cure (GDC) is a platform that encourages and prompts the\n\t\t\t\t\t\tcommunity to speak out and report different cases or issues that affect girls\n\t\t\t\t\t\tin their respective communities. The system or platform also creates a direct\n\t\t\t\t\t\tconnection of various stakeholders, key players that provide financial and\n\t\t\t\t\t\tsocial welfare services to marginalised girls and the community leaders to take\n\t\t\t\t\t\taction against the reported cases of incidence facing girls.\n\t\t\t\t\t"
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-white lg:py-24 py-12" }, [
-        _c("div", { staticClass: "lg:w-2/3 lg:px-0 px-6 mx-auto" }, [
-          _c("div", { staticClass: "flex -mx-6" }, [
-            _c("div", { staticClass: "w-full px-6" }, [
-              _c("iframe", {
-                staticClass: "w-full rounded-lg shadow-lg",
-                attrs: {
-                  height: "420",
-                  src: "https://www.youtube.com/embed/tDVpvAd11FQ",
-                  frameborder: "0",
-                  allow:
-                    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-                  allowfullscreen: ""
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.name,
+                expression: "form.name"
+              }
+            ],
+            staticClass: "form-input w-full",
+            attrs: { type: "text", id: "name" },
+            domProps: { value: _vm.form.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              })
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-gray-100 lg:py-24 py-12" }, [
-        _c("div", { staticClass: "lg:w-2/3 lg:px-0 px-6 mx-auto" }, [
-          _c("div", { staticClass: "flex lg:flex-row flex-col lg:-mx-6" }, [
-            _c(
-              "div",
-              {
-                staticClass: "lg:w-1/2 w-full lg:px-6 order-last lg:order-first"
-              },
-              [
-                _c("header", { staticClass: "mb-6" }, [
-                  _c(
-                    "h1",
-                    {
-                      staticClass:
-                        "inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-                    },
-                    [
-                      _vm._v(
-                        "\n                                    Vision\n                                "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "text-gray-600 lg:text-2xl text-xl" },
-                  [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t\tGDC envisions an Africa in which every girl is\n\t\t\t\t\t\t\t\teducated, valued, respected and protected and\n\t\t\t\t\t\t\t\tgrow to turn the tides of development in Africa.\n\t\t\t\t\t\t\t"
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "lg:w-1/2 w-full lg:px-6 order-first lg:order-last mb-6 lg:mb-0"
-              },
-              [
-                _c("div", { staticClass: "shadow rounded overflow-hidden" }, [
-                  _c("img", {
-                    staticClass: "w-full h-64 object-cover",
-                    attrs: { src: "/img/pages/image01.jpg", alt: "" }
-                  })
-                ])
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-white lg:py-24 py-12" }, [
-        _c("div", { staticClass: "lg:w-2/3 mx-auto" }, [
-          _c("div", { staticClass: "flex lg:flex-row flex-col lg:-mx-6" }, [
-            _c("div", { staticClass: "lg:w-1/2 w-full px-6 mb-6 lg:mb-0" }, [
-              _c("div", { staticClass: "shadow rounded overflow-hidden" }, [
-                _c("img", {
-                  staticClass: "w-full h-64 object-cover",
-                  attrs: { src: "/img/pages/image02.jpg" }
-                })
+                _vm.$set(_vm.form, "name", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.form.errors.has("name")
+            ? _c("div", { staticClass: "mt-2 text-sm text-red-500" }, [
+                _vm._v(_vm._s(_vm.form.errors.first("name")))
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "lg:w-1/2 w-full px-6" }, [
-              _c("header", { staticClass: "mb-6" }, [
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-                  },
-                  [_vm._v("Mission")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-gray-600 lg:text-2xl text-xl" }, [
-                _vm._v(
-                  "\n                                To give girls the voice to speak out against harassment and provide educational support\n                                through our partners.\n\t\t\t\t\t\t\t"
-                )
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-gray-900 lg:py-32 py-16" }, [
-        _c("div", { staticClass: "lg:w-2/3 mx-auto" }, [
-          _c("div", { staticClass: "flex" }, [
-            _c("div", { staticClass: "lg:w-2/3 px-6" }, [
-              _c("header", { staticClass: "mb-6" }, [
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "inline-block pb-2 lg:text-3xl text-2xl font-thin text-purple-100 uppercase tracking-wider"
-                  },
-                  [
-                    _vm._v(
-                      "\n                                    Why girls educational support?\n                                "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "px-6 mb-6" }, [
+          _c("label", { staticClass: "block mb-2", attrs: { for: "region" } }, [
+            _vm._v("Region")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
                 {
-                  staticClass:
-                    "lg:text-2xl text-xl text-white font-serif italic"
-                },
-                [
-                  _vm._v(
-                    "\n\t\t\t\t\t\t\t\tEducating a girl is the best investment we can use to change\n\t\t\t\t\t\t\t\tthe world and making it safer. Incredible multiplier effect,\n\t\t\t\t\t\t\t\tproviding returns for generations. Educated girls improve not\n\t\t\t\t\t\t\t\tjust their lives but also the lives of their communities and\n\t\t\t\t\t\t\t\tthe whole nation.\n\t\t\t\t\t\t\t"
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.region_id,
+                  expression: "form.region_id"
+                }
+              ],
+              staticClass: "form-select w-full",
+              attrs: { id: "region" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.form,
+                    "region_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                   )
-                ]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "bg-white lg:py-24 py-12" }, [
-        _c("div", { staticClass: "lg:w-2/3 mx-auto px-6 lg:px-0" }, [
-          _c("div", { staticClass: "flex" }, [
-            _c("div", { staticClass: "w-full" }, [
-              _c("header", { staticClass: "mb-6" }, [
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "inline-block pb-2 border-purple-500 border-b-2 text-sm text-gray-700 uppercase tracking-wider font-semibold"
-                  },
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Choose...")]),
+              _vm._v(" "),
+              _vm._l(_vm.regions, function(region) {
+                return _c(
+                  "option",
+                  { key: region.id, domProps: { value: region.id } },
                   [
                     _vm._v(
-                      "\n                                    Core Values\n                                "
+                      "\n                        " +
+                        _vm._s(region.name) +
+                        "\n                    "
                     )
                   ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-gray-600 lg:text-2xl text-xl" }, [
-                _vm._v(
-                  "\n\t\t\t\t\t\t\t\tTo give girls the voice to speak out against humiliations and\n\t\t\t\t\t\t\t\tharassments and provide educational support through our\n\t\t\t\t\t\t\t\tpartners for them to become leaders of change.\n\t\t\t\t\t\t\t"
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-8" }, [
-                _c(
-                  "div",
-                  { staticClass: "flex lg:flex-row flex-col lg:border-b" },
-                  [
-                    _c("div", { staticClass: "lg:w-1/2 w-full lg:border-r" }, [
-                      _c("div", { staticClass: "lg:pr-6 pb-8" }, [
-                        _c("header", { staticClass: "mb-3" }, [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                            },
-                            [_vm._v("Urgency")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-gray-700" }, [
-                          _c("p", [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tWe believe that only with a quality education that\n\t\t\t\t\t\t\t\t\t\t\t\t\tgirls can reach their potentials and achieve their\n\t\t\t\t\t\t\t\t\t\t\t\t\tdreams and life goals. We act with urgency to get the\n\t\t\t\t\t\t\t\t\t\t\t\t\tgirls back to school, triggering widespread change\n\t\t\t\t\t\t\t\t\t\t\t\t\tthrough direct action with demonstrable results.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                            )
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "lg:w-1/2 w-full" }, [
-                      _c("div", { staticClass: "lg:pl-6 lg:pb-8" }, [
-                        _c("header", { staticClass: "mb-3" }, [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                            },
-                            [_vm._v("Dignity")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-gray-700" }, [
-                          _c("p", [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tRespect, protection and promoting dignity to the girls\n\t\t\t\t\t\t\t\t\t\t\t\t\tand community with the aim of debilitating effects and\n\t\t\t\t\t\t\t\t\t\t\t\t\texclusion on an individual's sense of self-worth and\n\t\t\t\t\t\t\t\t\t\t\t\t\tentitlement.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "flex lg:flex-row flex-col lg:border-b" },
-                  [
-                    _c("div", { staticClass: "w-1/2 w-full lg:border-r" }, [
-                      _c("div", { staticClass: "lg:pr-6 lg:pb-8 pt-8" }, [
-                        _c("header", { staticClass: "mb-3" }, [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                            },
-                            [_vm._v("Leadership")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-gray-700" }, [
-                          _c("p", [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tYoung people are experts on barriers they face apart from being victims.\n\t\t\t\t\t\t\t\t\t\t\t\t\tHence, we actually support young girls because their experiences and\n\t\t\t\t\t\t\t\t\t\t\t\t\texpertise are vital to the development of sustainable solutions.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                            )
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "w-1/2 w-full" }, [
-                      _c("div", { staticClass: "lg:pl-6 pt-8 lg:pb-8" }, [
-                        _c("header", { staticClass: "mb-3" }, [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                            },
-                            [_vm._v("Partnership")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-gray-700" }, [
-                          _c("p", [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t\t\t\t\t\tWe build a strong but apolitical partnership with organizations hence\n\t\t\t\t\t\t\t\t\t\t\t\t\tinitiating an innovative partnership between communities, like-minded\n\t\t\t\t\t\t\t\t\t\t\t\t\torganizations and private sectors to maximize resources available to\n\t\t\t\t\t\t\t\t\t\t\t\t\ttackle the challenges which girls face.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex lg:flex-row flex-col" }, [
-                  _c("div", { staticClass: "w-1/2 w-full lg:border-r" }, [
-                    _c("div", { staticClass: "pr-6 pt-8" }, [
-                      _c("header", { staticClass: "mb-3" }, [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                          },
-                          [_vm._v("Accountability")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-gray-700" }, [
-                        _c("p", [
-                          _vm._v(
-                            "\n\t\t\t\t\t\t\t\t\t\t\t\t\tWe are accountable first to the vulnerable girls. Our\n\t\t\t\t\t\t\t\t\t\t\t\t\tsystem put this principle in action to secure and\n\t\t\t\t\t\t\t\t\t\t\t\t\treinforce girl`s rights and entitlement and underpins\n\t\t\t\t\t\t\t\t\t\t\t\t\tour partnership at every level.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                          )
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-1/2 w-full" }, [
-                    _c("div", { staticClass: "lg:pl-6 pt-8" }, [
-                      _c("header", { staticClass: "mb-3" }, [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-xs uppercase tracking-wider font-semibold text-purple-600"
-                          },
-                          [
-                            _vm._v(
-                              "\n                                                    Protection\n                                                "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-gray-700" }, [
-                        _c("p", [
-                          _vm._v(
-                            "\n\t\t\t\t\t\t\t\t\t\t\t\t\tWe hold information on any girl we support, tracking her\n\t\t\t\t\t\t\t\t\t\t\t\t\twelfare and engaging with all those who hold authority in\n\t\t\t\t\t\t\t\t\t\t\t\t\trelation to girls in order to mitigate girl`s vulnerability\n\t\t\t\t\t\t\t\t\t\t\t\t\tin any form of abuse or violation.\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm.form.errors.has("region_id")
+            ? _c("div", { staticClass: "mt-2 text-sm text-red-500" }, [
+                _vm._v(_vm._s(_vm.form.errors.first("region_id")))
               ])
-            ])
-          ])
+            : _vm._e()
         ])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "px-6 pb-4 flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-purple",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [_vm._v("Save Changes")]
+        )
       ])
-    ])
-  ])
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "px-6 mt-6" }, [
+      _c(
+        "h2",
+        {
+          staticClass:
+            "text-gray-700 text-xs uppercase tracking-wide font-semibold"
+        },
+        [_vm._v("Create District")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Static/About.vue":
-/*!*********************************************!*\
-  !*** ./resources/js/Pages/Static/About.vue ***!
-  \*********************************************/
+/***/ "./resources/js/Pages/Districts/Create.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/Districts/Create.vue ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About.vue?vue&type=template&id=79daecb5& */ "./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5&");
-/* harmony import */ var _About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./About.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Static/About.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=3ffa2e6f& */ "./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -649,9 +298,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -661,40 +310,55 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Pages/Static/About.vue"
+component.options.__file = "resources/js/Pages/Districts/Create.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Static/About.vue?vue&type=script&lang=js&":
-/*!**********************************************************************!*\
-  !*** ./resources/js/Pages/Static/About.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************/
+/***/ "./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./About.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Static/About.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Districts/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5& ***!
-  \****************************************************************************/
+/***/ "./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f& ***!
+  \********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./About.vue?vue&type=template&id=79daecb5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Static/About.vue?vue&type=template&id=79daecb5&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=3ffa2e6f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Districts/Create.vue?vue&type=template&id=3ffa2e6f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_About_vue_vue_type_template_id_79daecb5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3ffa2e6f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/events.js":
+/*!********************************!*\
+  !*** ./resources/js/events.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (new vue__WEBPACK_IMPORTED_MODULE_0__["default"]());
 
 /***/ })
 

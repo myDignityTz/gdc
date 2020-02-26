@@ -4,6 +4,9 @@
 			<div class="mb-6 w-full px-3">
 				<label for="school_name" class="block mb-2 text-gray-700">School name</label>
 				<input class="form-input w-full" id="school_name" v-model="form.name" />
+                <div v-if="errors().has('environment.name')" class="form-error mt-1">
+                    The school name field is required.
+                </div>
 			</div>
 		</div>
 		<div class="flex -mx-3">
@@ -14,6 +17,9 @@
 					<option value="private">Private</option>
 					<option value="government">Government</option>
 				</select>
+                <div v-if="errors().has('environment.type')" class="form-error mt-1">
+                    The school type field is required.
+                </div>
 			</div>
 			<div class="mb-6 w-2/3 px-3">
 				<label for="school_level" class="block mb-2 text-gray-700">Level</label>
@@ -23,6 +29,9 @@
 					<option value="a-level">Secondary Education (O - level)</option>
 					<option value="o-level">Secondary Education (A - level)</option>
 				</select>
+                <div v-if="errors().has('environment.level')" class="form-error mt-1">
+                    The level field is required.
+                </div>
 			</div>
 		</div>
 
@@ -30,6 +39,9 @@
 			<div class="mb-6 w-full px-3">
 				<label for="school_street" class="block mb-1 text-gray-700">Street</label>
 				<input type="text" class="form-input w-full" id="school_street" v-model="form.street" />
+                <div v-if="errors().has('environment.street')" class="form-error mt-1">
+                    {{ errors().first('environment.street') }}
+                </div>
 			</div>
 		</div>
 
@@ -40,6 +52,9 @@
 					<option value>Choose...</option>
 					<option v-for="region in regions" :key="region.id" :value="region.id">{{ region.name }}</option>
 				</select>
+                <div v-if="errors().has('environment.region_id')" class="form-error mt-1">
+                    {{ errors().first('environment.region_id') }}
+                </div>
 			</div>
 			<div class="mb-6 w-1/2 px-3">
 				<label for="school_district" class="block mb-2 text-gray-700">District</label>
@@ -51,6 +66,9 @@
 						:value="district.id"
 					>{{ district.name }}</option>
 				</select>
+                <div v-if="errors().has('environment.district_id')" class="form-error mt-1">
+                    {{ errors().first('environment.district_id') }}
+                </div>
 			</div>
 		</div>
 	</div>

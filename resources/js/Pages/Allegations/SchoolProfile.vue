@@ -30,6 +30,11 @@
 
 <script>
 	export default {
-		props: ["environment"]
+		props: {
+            environment: {
+                required: true,
+                type: Object
+            }
+        }
 	};
 </script>

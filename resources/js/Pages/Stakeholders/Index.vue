@@ -33,7 +33,7 @@
 							>Status</th>
 							<th
 								class="px-4 py-4 bg-gray-100 text-xs text-gray-600 uppercase font-semibold tracking-wider"
-							></th>
+							>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,10 +55,10 @@
 								>{{ allegation.pivot.status }}</span>
 							</td>
 							<td class="px-4 py-4">
-								<v-popover placement="bottom-start">
+								<v-popover placement="bottom-end">
 									<!-- This will be the popover target (for the events and position) -->
 									<button class="px-5">
-										<i class="ri-more-fill"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 fill-current"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
 									</button>
 									<!-- This will be the content of the popover -->
 									<template slot="popover">

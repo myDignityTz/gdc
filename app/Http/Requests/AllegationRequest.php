@@ -27,12 +27,19 @@ class AllegationRequest extends FormRequest
             "type_id" => "required",
             "category_id" => "required",
             "victim" => "required|array",
+            "victim.name" => "required",
             "victim.age" => "required",
             "suspect" => "required|array",
             "suspect.description" => "required",
             "suspect.relationship" => "required",
-            "environment" => "required",
             "environment_type" => "required",
+            "environment" => "required|array",
+            "environment.name" => "required_if:environment_type,school",
+            "environment.type" => "required_if:environment_type,school",
+            "environment.level" => "required_if:environment_type,school",
+            "environment.district_id" => "required",
+            "environment.region_id" => "required",
+            "environment.street" => "required",
         ];
     }
 }

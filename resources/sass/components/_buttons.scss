@@ -1,0 +1,22 @@
+.btn {
+    @apply flex items-center text-xs uppercase tracking-wide px-4 py-3 rounded font-semibold;
+    &-purple {
+        @apply bg-purple-700 text-white;
+        &:hover {
+            @apply bg-purple-800;
+        }
+    }
+    &-red {
+        @apply bg-red-600 text-white;
+        &:hover {
+            @apply bg-red-700;
+        }
+    }
+    &-gray {
+        @apply bg-gray-200 text-gray-800;
+        &:hover {
+            @apply bg-gray-300;
+        }
+    }
+
+}

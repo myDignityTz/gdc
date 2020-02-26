@@ -3,10 +3,7 @@
 		<div class="w-2/3 mx-auto">
 			<header class="flex justify-between items-center my-8">
 				<h1 class="text-lg font-semibold">Allegations (Cases)</h1>
-				<inertia-link
-					href="/allegations/create"
-					class="bg-purple-700 text-white text-xs uppercase tracking-wider px-5 py-3 font-semibold hover:bg-purple-600 rounded"
-				>Report Allegation</inertia-link>
+				<inertia-link class="btn btn-purple" href="/allegations/create">Report Allegation</inertia-link>
 			</header>
 			<div class="bg-white mt-6 shadow rounded overflow-hidden">
 				<table class="text-left w-full">
@@ -32,7 +29,7 @@
 							>Status</th>
 							<th
 								class="px-4 py-4 bg-gray-100 text-xs text-gray-600 uppercase font-semibold tracking-wider"
-							></th>
+							>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,9 +55,7 @@
 									<span class="text-xs text-gray-600 capitalize">{{ allegation.suspect.relationship }}</span>
 								</td>
 								<td class="px-4 py-4">
-									<span
-										class="text-xs uppercase tracking-wider font-semibold bg-gray-200 px-2 py-1 rounded-full"
-									>{{ allegation.status }}</span>
+									<span class="text-xs uppercase tracking-wider font-semibold bg-gray-200 px-2 py-1 rounded-full">{{ allegation.status }}</span>
 								</td>
 								<td class="px-4 py-4">
 									<div class="flex items-center">
@@ -70,13 +65,12 @@
 											@click.prevent="show(allegation.id)"
 										>{{ allegation.isVisible ? "Hide" : "Show" }}</a>
 										<span class="px-3 text-xs text-gray-400">|</span>
-										<v-popover placement="bottom-start" offset="16">
-											<!-- This will be the popover target (for the events and position) -->
-											<button class="flex items-center">
-												<span class="text-xs uppercase mr-1">Actions</span>
-												<i class="ri-arrow-down-s-line"></i>
+										<v-popover placement="bottom-end" offset="16">
+											<button class="flex items-center text-xs uppercase">
+                                                Actions
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 fill-current ml-1 text-gray-600"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"/></svg>
 											</button>
-											<!-- This will be the content of the popover -->
+
 											<template slot="popover">
 												<div class="bg-white shadow-xl">
 													<template v-for="stakeholder in stakeholders">
@@ -87,24 +81,24 @@
 															:key="stakeholder.id"
 															:data="{ stakeholder_id: stakeholder.id }"
 															v-if="!allegation.stakeholders.find(s => s.id === stakeholder.id)"
-														>Asssign to {{ stakeholder.name }}</inertia-link>
+														>Assign to {{ stakeholder.name }}</inertia-link>
 													</template>
 
 													<hr class="mt-3" />
 
 													<inertia-link
 														href="#"
-														class="block flex items-center px-4 py-2 text-purple-700 hover:bg-purple-700 hover:text-white"
+														class="block flex items-center px-4 py-2 text-purple-700 hover:bg-purple-700 hover:text-white text-sm"
 													>
-														<i class="ri-edit-line"></i>
-														<span class="text-sm ml-2">Update</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current mr-2"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.414 16L16.556 5.858l-1.414-1.414L5 14.586V16h1.414zm.829 2H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z"/></svg>
+                                                        Update
 													</inertia-link>
 													<inertia-link
 														href="#"
-														class="block flex items-center px-4 py-2 text-red-500 hover:bg-purple-700 hover:text-white"
+														class="block flex items-center px-4 py-2 text-red-500 hover:bg-purple-700 hover:text-white text-sm"
 													>
-														<i class="ri-delete-bin-line"></i>
-														<span class="text-sm ml-2">Delete</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-current mr-2"><path fill="none" d="M0 0h24v24H0z"/><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"/></svg>
+                                                        Delete
 													</inertia-link>
 												</div>
 											</template>
@@ -205,7 +199,7 @@
 												</div>
 											</section>
 											<!-- Environment -->
-											<component :is="allegation.environment_category" :environment="allegation.environment"></component>
+                                            <component :is="allegation.environment_category" :environment="allegation.environment" />
 										</div>
 									</div>
 								</td>
@@ -221,38 +215,39 @@
 <script>
 	import Layout from "@/Shared/Layout";
 	import SchoolProfile from "./SchoolProfile";
+	import HomeProfile from "./HomeProfile";
+
 	export default {
-		components: { Layout, school: SchoolProfile },
-		props: ["allegations", "stakeholders"],
+		components: {
+		    Layout,
+            school: SchoolProfile,
+            home: HomeProfile,
+        },
+		props: {
+            allegations: {
+                required: true,
+                type: Array
+            },
+            stakeholders: {
+                required: true,
+                type: Array
+            }
+        },
 		data() {
 			return {
-				cases: this.allegations.map(item => {
-					return Object.assign(item, {
-						isVisible: false
-					});
-				})
+				cases: this.allegations.map(item => Object.assign(item, { isVisible: false}))
 			};
 		},
 		methods: {
 			show(id) {
 				this.cases = this.cases.map(item => {
-					if (item.id === id) {
-						return Object.assign(item, {
-							isVisible: !item.isVisible
-						});
+					if (item.id !== id) {
+					    return item;
 					}
 
-					return item;
+                    return Object.assign(item, { isVisible: !item.isVisible});
 				});
-
-				console.log(this.cases);
 			}
 		}
 	};
 </script>
-
-<style>
-	.v-popover {
-		line-height: 0;
-	}
-</style>

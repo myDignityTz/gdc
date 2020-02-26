@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Allegation;
 use Illuminate\Http\Request;
@@ -15,10 +16,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $allegations = Allegation::with(["suspect", "victim", "reporter", "stakeholders"])->latest()->take(5)->get();
+        if (auth()->user()->isAn('admin')) {
+            return Inertia::render('Dashboard/Index');
+        }
 
-        return Inertia::render('Dashboard/Index', [
-            "allegations" => $allegations
-        ]);
+        return Redirect::route('allegations.index');
     }
 }

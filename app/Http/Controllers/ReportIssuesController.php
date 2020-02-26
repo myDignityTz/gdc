@@ -32,7 +32,6 @@ class ReportIssuesController extends Controller
         $this->validate($request, [
             "type_id" => "required",
             "category_id" => "required",
-            "environment_type" => ["required", Rule::in(['school', 'home'])],
             "description" => "required",
             "victim" => ["required", "array"],
             "victim.name" => ["required"],
@@ -44,6 +43,14 @@ class ReportIssuesController extends Controller
             "reporter" => ["required", "array"],
             "reporter.email" => ["email", "nullable"],
             "reporter.phone" => ["phone:TZ", "nullable"],
+            "environment_type" => ["required", Rule::in(['school', 'home'])],
+            "environment" => "required|array",
+            "environment.name" => "required_if:environment_type,school",
+            "environment.type" => "required_if:environment_type,school",
+            "environment.level" => "required_if:environment_type,school",
+            "environment.district_id" => "required",
+            "environment.region_id" => "required",
+            "environment.street" => "required",
         ]);
 
         $victim     = Victim::Create(request("victim"));
@@ -77,7 +84,11 @@ class ReportIssuesController extends Controller
 
         $environment->allegation()->save($allegation);
 
-        Ambassador::create(request('reporter'))->reporter()->save(new Reporter());
+        Ambassador::create([
+            "name" => request("reporter.name", 'Anonymous'),
+            "email" => request("reporter.email"),
+            "phone" => request("reporter.phone"),
+        ])->reporter()->save(new Reporter());
 
         return redirect()->back()->with('status', 'Case was reported successfully');
     }

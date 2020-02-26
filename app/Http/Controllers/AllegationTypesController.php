@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\AllegationType;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class AllegationTypesController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware("auth");
     }
 
-    public function index() 
+    public function index()
     {
         $types = AllegationType::latest()->get();
 
@@ -23,10 +23,32 @@ class AllegationTypesController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required"
+        ]);
+
         AllegationType::create(request(["name"]));
 
-        return \Redirect::back();
+        return Response::json([]);
+    }
+
+    public function update(Request $request, AllegationType $allegationType)
+    {
+        $this->validate($request, [
+            "name" => "required"
+        ]);
+
+        $allegationType->update(request(["name"]));
+
+        return Response::json([]);
+    }
+
+    public function destroy( AllegationType $allegationType)
+    {
+        $allegationType->delete();
+
+        return Response::json([]);
     }
 }

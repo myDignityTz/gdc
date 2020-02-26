@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Allegation;
-use App\Models\Reporter;
 use App\Models\Victim;
 use App\Models\Suspect;
 use App\Models\Stakeholder;
 use App\Models\Region;
 use App\Models\AllegationType;
 use App\Models\SchoolEnvironment;
+use App\Models\HomeEnvironment;
 use App\Models\SuspectRelationship;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,14 +19,22 @@ use App\Http\Requests\AllegationRequest;
 
 class AllegationsController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware("auth");
     }
 
-    public function index() 
+    public function index()
     {
-        $allegations = Allegation::with(["suspect", "victim", "reporter", "stakeholders"])->latest()->get();
+        if (auth()->user()->isAn('admin')){
+            $allegations = Allegation::with(["suspect", "victim", "reporter", "stakeholders"])->latest()->get();
+        } else {
+            $allegations = Allegation::with(["suspect", "victim", "reporter", "stakeholders"])
+                ->latest()
+                ->where("user_id", auth()->id())
+                ->get();
+        }
+
 
         return Inertia::render("Allegations/Index", [
             "allegations" => $allegations,
@@ -33,7 +42,7 @@ class AllegationsController extends Controller
         ]);
     }
 
-    public function create() 
+    public function create()
     {
         return Inertia::render("Allegations/Create", [
             "types" => AllegationType::with("categories")->get(),
@@ -77,6 +86,6 @@ class AllegationsController extends Controller
             }
         }
 
-        return \Redirect::route("allegations.index");
+        return Redirect::route("allegations.index");
     }
 }

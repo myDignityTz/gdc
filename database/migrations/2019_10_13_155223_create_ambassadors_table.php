@@ -15,9 +15,9 @@ class CreateAmbassadorsTable extends Migration
     {
         Schema::create('ambassadors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name");
-            $table->string("email");
-            $table->string("phone");
+            $table->string("name")->nullable();
+            $table->string("email")->nullable();
+            $table->string("phone")->nullable();
             $table->timestamps();
         });
     }

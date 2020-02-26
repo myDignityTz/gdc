@@ -13,7 +13,7 @@ class CaseWasReported extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     public $allegation;
-   
+
     public function __construct(Allegation $allegation)
     {
         $this->allegation = $allegation;
@@ -21,11 +21,9 @@ class CaseWasReported extends Mailable implements ShouldQueue
 
     public function build()
     {
-        return $this->subject("{$this->allegation->type} Case")
-            ->markdown('emails.cases.reported');
-            // ->attach('/path/to/file', [
-            //     'as' => 'name.pdf',
-            //     'mime' => 'application/pdf',
-            // ]);
+        $subject = optional($this->allegation->type)->name;
+
+        return $this->subject("Reporting {$subject} Case")->markdown('emails.cases.reported');
+
     }
 }

@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StakeholderTableSeeder::class);
         $this->call(RegionsTableSeeder::class);
         $this->call(AllegationTypesTableSeeder::class);
+        $this->call(RelationshipSeeder::class);
     }
 }

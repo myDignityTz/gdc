@@ -18,50 +18,52 @@
 					<div class="w-2/3">
 						<form class="relative bg-white rounded shadow-lg left-0" style="top: -7rem;">
 							<div class="py-8">
-								<!-- Reporter -->
-								<section class="px-6 pb-12 mb-6 border-b">
-									<header class="mb-6">
-										<h2 class="text-lg mb-2 text-gray-600">Report details</h2>
-										<p class="text-sm text-gray-700">
-                                            This details will be only be used to follow up reported issues.
-                                            Please indicate if you would like to remain anonymous
-										</p>
-									</header>
+                                <template v-if="!$page.auth.user">
+                                    <!-- Reporter -->
+                                    <section class="px-6 pb-12 mb-6 border-b">
+                                        <header class="mb-6">
+                                            <h2 class="text-lg mb-2 text-gray-600">Report details</h2>
+                                            <p class="text-sm text-gray-700">
+                                                This details will be only be used to follow up reported issues.
+                                                Please indicate if you would like to remain anonymous
+                                            </p>
+                                        </header>
 
-                                    <!-- alerts -->
-                                    <div v-if="hasStatus" class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow mb-4" role="alert">
-                                        <div class="flex">
-                                            <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
-                                            <div>
-                                                <p class="font-bold">Case Reported</p>
-                                                <p class="text-sm">{{ $page.status }}</p>
+                                        <!-- alerts -->
+                                        <div v-if="hasStatus" class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow mb-4" role="alert">
+                                            <div class="flex">
+                                                <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                                                <div>
+                                                    <p class="font-bold">Case Reported</p>
+                                                    <p class="text-sm">{{ $page.status }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-									<div class="flex -mx-3">
-										<div class="w-full px-3 mb-6">
-											<label for="reporter_name" class="block mb-2 text-gray-700">Name</label>
-											<input type="text" id="reporter_name" v-model="form.reporter.name" class="form-input w-full" />
-										</div>
-									</div>
-									<div class="flex -mx-3">
-										<div class="w-1/2 px-3">
-											<label for="reporter_email" class="block mb-2 text-gray-700">Email</label>
-											<input type="text" id="reporter_email" v-model="form.reporter.email" class="form-input w-full" />
-                                            <div v-if="errors().has('reporter.email')" class="text-red-500 text-sm italic mt-1">
-                                                {{ errors().first('reporter.email') }}
+                                        <div class="flex -mx-3">
+                                            <div class="w-full px-3 mb-6">
+                                                <label for="reporter_name" class="block mb-2 text-gray-700">Name</label>
+                                                <input type="text" id="reporter_name" v-model="form.reporter.name" class="form-input w-full" />
                                             </div>
-										</div>
-										<div class="w-1/2 px-3">
-											<label for="reporter_phone" class="block mb-2 text-gray-700">Phone</label>
-											<input type="text" id="reporter_phone" v-model="form.reporter.phone" class="form-input w-full" />
-                                            <div v-if="errors().has('reporter.phone')" class="text-red-500 text-sm italic mt-1">
-                                                {{ errors().first('reporter.phone') }}
+                                        </div>
+                                        <div class="flex -mx-3">
+                                            <div class="w-1/2 px-3">
+                                                <label for="reporter_email" class="block mb-2 text-gray-700">Email</label>
+                                                <input type="text" id="reporter_email" v-model="form.reporter.email" class="form-input w-full" />
+                                                <div v-if="errors().has('reporter.email')" class="text-red-500 text-sm italic mt-1">
+                                                    {{ errors().first('reporter.email') }}
+                                                </div>
                                             </div>
-										</div>
-									</div>
-								</section>
+                                            <div class="w-1/2 px-3">
+                                                <label for="reporter_phone" class="block mb-2 text-gray-700">Phone</label>
+                                                <input type="text" id="reporter_phone" v-model="form.reporter.phone" class="form-input w-full" />
+                                                <div v-if="errors().has('reporter.phone')" class="text-red-500 text-sm italic mt-1">
+                                                    {{ errors().first('reporter.phone') }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </template>
 								<!-- Case -->
 								<section class="px-6 pb-12 mb-6 border-b">
 									<header class="mb-6">
@@ -71,6 +73,16 @@
                                             possible including place and date.
 										</p>
 									</header>
+
+                                    <div v-if="$page.auth.user && hasStatus" class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow mb-4" role="alert">
+                                        <div class="flex">
+                                            <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                                            <div>
+                                                <p class="font-bold">Case Reported</p>
+                                                <p class="text-sm">{{ $page.status }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
 									<div class="flex -mx-3">
 										<div class="mb-6 w-1/2 px-3">

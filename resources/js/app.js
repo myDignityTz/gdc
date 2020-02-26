@@ -1,14 +1,12 @@
 require("./bootstrap");
 import Vue from "vue";
 import route from "ziggy";
-import VueApexCharts from "vue-apexcharts";
+import VueMeta from 'vue-meta';
 import VTooltip from "v-tooltip";
 import VModal from "vue-js-modal";
+import VueApexCharts from "vue-apexcharts";
+import { Errors } from "form-backend-validation";
 import { InertiaApp } from "@inertiajs/inertia-vue";
-import VueMeta from 'vue-meta';
-import Errors from "./Errors";
-
-import "remixicon/fonts/remixicon.css";
 
 Vue.use(VueApexCharts);
 Vue.use(VTooltip);
@@ -22,6 +20,8 @@ Vue.use(VueMeta, {
     keyName: 'head',
 });
 
+Vue.component("apexchart", VueApexCharts);
+
 Vue.mixin({
     methods: {
         errors() {
@@ -29,8 +29,6 @@ Vue.mixin({
         }
     }
 });
-
-Vue.component("apexchart", VueApexCharts);
 
 Vue.prototype.$can      = (name) => {
     const { abilities } = app.$page.auth.user;

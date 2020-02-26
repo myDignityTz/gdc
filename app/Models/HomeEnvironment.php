@@ -8,7 +8,7 @@ class HomeEnvironment extends Model
 {
     protected $guarded = [];
 
-    protected $with     = ["region", "district"];
+    protected $with    = ["region", "district"];
 
     public function allegation()
     {

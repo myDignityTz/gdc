@@ -62,10 +62,10 @@
                             </button>
                         </template>
                         <inertia-link
-                            class="lg:ml-4 bg-white text-blue-700 px-4 py-2 flex items-center justify-center rounded text-center"
+                            class="lg:ml-4 bg-white text-blue-700 px-4 py-3 flex items-center justify-center rounded text-center"
                             href="/report_issues"
                         >
-                            <i class="ri-add-line"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg>
                             <span
                                 class="ml-2 leading-none text-xs uppercase tracking-wider font-semibold"
                                 >Report Issue</span
@@ -83,27 +83,18 @@
             <div class="lg:w-2/3 mx-auto px-6 lg:px-0">
                 <div class="flex lg:flex-row flex-col items-center justify-between">
                     <div class="text-white mb-4">
-                        &copy; Copyright {{ today.getFullYear() }}, The Expert.
+                        &copy; Copyright {{ (new Date()).getFullYear() }}, The Expert.
                     </div>
                     <nav class="flex items-center">
-                        <a
-                            href="#"
-                            class="px-2 text-blue-100 hover:text-blue-300 flex items-center"
-                        >
+                        <a href="#" class="px-2 text-blue-100 hover:text-blue-300 flex items-center">
                             <i class="ri-facebook-box-fill"></i>
                             <span class="ml-2">Facebook</span>
                         </a>
-                        <a
-                            href="#"
-                            class="px-2 text-blue-100 hover:text-blue-300 flex items-center"
-                        >
+                        <a href="#" class="px-2 text-blue-100 hover:text-blue-300 flex items-center">
                             <i class="ri-instagram-fill"></i>
                             <span class="ml-2">Instagram</span>
                         </a>
-                        <a
-                            href="#"
-                            class="px-2 text-blue-100 hover:text-blue-300 flex items-center"
-                        >
+                        <a href="#" class="px-2 text-blue-100 hover:text-blue-300 flex items-center">
                             <i class="ri-twitter-fill"></i>
                             <span class="ml-2">Twitter</span>
                         </a>
@@ -126,7 +117,7 @@ export default {
             options: {
                 height: "auto",
                 width: "450px",
-                scrollable: false
+                scrollable: true
             }
         };
     },
@@ -136,9 +127,6 @@ export default {
         },
         isAuthenticated() {
             return !!this.$page.auth.user;
-        },
-        today() {
-            return new Date();
         }
     },
     watch: {

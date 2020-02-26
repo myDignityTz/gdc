@@ -1,11 +1,6 @@
 <template>
 	<layout title="Allegations - Create">
-		<div class="w-2/5 mx-auto">
-			<!-- Errors -->
-			<div v-if="Object.keys($page.errors).length" class="bg-white my-4 rounded px-4 py-4">
-				<pre>{{ $page.errors }}</pre>
-			</div>
-
+		<div class="w-6/12 mx-auto">
 			<!-- Form -->
 			<form class="my-8 bg-white rounded shadow py-6" @submit.prevent="submit">
 				<header class="mb-8 px-6">
@@ -53,17 +48,20 @@
 								<option value="home">Home</option>
 								<option value="school">School</option>
 							</select>
-							<div v-if="errors().has('environment')" class="form-error mt-1">
-                                {{ errors().first('environment') }}
+							<div v-if="errors().has('environment_type')" class="form-error mt-1">
+                                {{ errors().first('environment_type') }}
                             </div>
 						</div>
 					</div>
 
-					<component :is="environment" :regions="regions" @environment="appendEnvironment"></component>
+					<component :is="environment" :regions="regions" @environment="appendEnvironment" />
 
 					<div class="mb-6 px-6">
 						<label for="description" class="block mb-2 text-gray-700">Description</label>
-						<textarea id="description" class="form-textarea w-full" rows="3" v-model="form.description"></textarea>
+                        <textarea id="description" class="form-textarea w-full" rows="3" v-model="form.description"/>
+                        <div v-if="errors().has('description')" class="form-error mt-1">
+                            {{ errors().first('description') }}
+                        </div>
 					</div>
 				</section>
 				<!-- Victim -->
@@ -75,18 +73,21 @@
 						<div class="mb-6 w-2/3 px-3">
 							<label for="victim_name" class="block mb-1 text-gray-700">Name</label>
 							<input id="victim_name" type="text" class="form-input w-full" v-model="form.victim.name" />
+                            <div v-if="errors().has('victim.name')" class="form-error mt-1">
+                                The victim name field is required.
+                            </div>
 						</div>
 						<div class="mb-6 w-1/3 px-3">
 							<label for="victim_age" class="block mb-1 text-gray-700">Age (In Years)</label>
 							<input id="victim_age" type="number" class="form-input w-full" v-model="form.victim.age" />
-							<div v-if="$page.errors.victim" class="form-error mt-1">
-                                {{ $page.errors.victim.age[0] }}
+							<div v-if="errors().has('victim.age')" class="form-error mt-1">
+                                The victim age field is required.
                             </div>
 						</div>
 					</div>
 					<div class="mb-6">
 						<label for="victim_description" class="block mb-1 text-gray-700">Description</label>
-						<textarea id="victim_description" class="form-textarea w-full" rows="3" v-model="form.victim.description"></textarea>
+                        <textarea id="victim_description" class="form-textarea w-full" rows="3" v-model="form.victim.description"/>
 					</div>
 				</section>
 				<!-- Suspect -->
@@ -99,6 +100,9 @@
 						<div class="mb-6 w-full px-3">
 							<label for="suspect_name" class="block mb-1 text-gray-700">Name</label>
 							<input id="suspect_name" type="text" class="form-input w-full" v-model="form.suspect.name" />
+                            <div v-if="errors().has('suspect.name')" class="form-error mt-1">
+                                The suspect name field is required.
+                            </div>
 						</div>
 					</div>
 
@@ -111,19 +115,23 @@
                                     {{ relationship.name }}
                                 </option>
 							</select>
+                            <div v-if="errors().has('suspect.relationship')" class="form-error mt-1">
+                                The suspect relationship field is required.
+                            </div>
 						</div>
 					</div>
 
 					<div class="mb-6">
 						<label for="suspect_description" class="block mb-1 text-gray-700">Description</label>
-						<textarea id="suspect_description" class="form-textarea w-full" rows="3" v-model="form.suspect.description"></textarea>
+                        <textarea id="suspect_description" class="form-textarea w-full" rows="3" v-model="form.suspect.description"/>
+                        <div v-if="errors().has('suspect.description')" class="form-error mt-1">
+                            The suspect description field is required.
+                        </div>
 					</div>
 				</section>
 				<!-- Footer -->
 				<footer class="flex justify-end px-6">
-					<button @click.prevent="submit" class="bg-purple-700 text-white text-xs uppercase font-semibold tracking-wider px-5 py-3 rounded">
-                        Save Changes
-                    </button>
+					<button class="btn btn-purple" @click.prevent="submit">Save Changes</button>
 				</footer>
 			</form>
 		</div>
@@ -134,52 +142,62 @@
 	import Layout from "@/Shared/Layout";
 	import HomeEnvironment from "./Home";
 	import SchoolEnvironment from "./School";
+
 	export default {
 		components: {
 			Layout,
 			HomeEnvironment,
 			SchoolEnvironment
 		},
-		props: ["allegations", "regions", "types", "relationships"],
+		props: {
+            regions: {
+                required: true,
+                type: Array
+            },
+            types: {
+                required: true,
+                type: Array
+            },
+            relationships: {
+                required: true,
+                type: Array
+            }
+        },
 		data() {
 			return {
 				form: {
-					type_id: "",
-					category_id: "",
-					description: "",
-					environment_type: "",
+					type_id: '',
+					category_id: '',
+					description: '',
+					environment_type: '',
 					environment: null,
 					victim: {
-						name: "",
-						age: "",
-						gender: "",
-						description: ""
+						name: '',
+						age: '',
+						gender: '',
+						description: ''
 					},
 					suspect: {
-						name: "",
-						relationship: "",
-						description: ""
+						name: '',
+						relationship: '',
+						description: ''
 					}
 				}
 			};
 		},
 		computed: {
 			environment() {
-				return this.form.environment_type
-					? `${this.form.environment_type}Environment`
-					: null;
+				return this.form.environment_type  ? `${this.form.environment_type}Environment` : null;
 			},
 			categories() {
-				let type = this.types.find(item => {
-					return item.id === this.form.type_id;
-				});
+				let type = this.types.find(item => item.id === this.form.type_id );
 
 				return type ? type.categories : [];
 			}
 		},
 		methods: {
 			submit() {
-				this.$inertia.post("/allegations", this.form);
+				this.$inertia.post(`/allegations`, this.form);
 			},
 			appendEnvironment(payload) {
 				this.form.environment = payload;
