@@ -30,16 +30,16 @@ Reference Material
 ##### Install GIT
 `apt install git`
 
-Install Composer
+##### Install Composer
 `apt install composer`
 
 ##### Install Mysql
 `apt install mysql`
 
-#### Login into the database
+##### Login into the database
 `mysql -uroot -p` then press enter, the system will ask for password press enter without type anything
 
-#### Create database
+##### Create database
 `create database gdc;`
 
 ##### Clone project from github
